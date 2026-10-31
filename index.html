@@ -4,637 +4,364 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#090B0E">
 <title>آکادمی اسلو | ESLO ACADEMY</title>
-<meta name="description" content="آکادمی اسلو؛ همراه تو در مسیر یادگیری، برنامه‌ریزی و پیشرفت تحصیلی.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Estedad:wght@300;400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 @font-face {
-  font-family:"Kalameh";
-  src:url("fonts/Kalameh-Bold.woff2") format("woff2");
-  font-weight:700;
-  font-display:swap;
+  font-family: "Kalameh";
+  src: url("fonts/Kalameh-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 :root {
-  --bg:#090B0E;
-  --surface:#17191D;
-  --surface2:#202126;
-  --mustard:#D6A928;
-  --yellow:#FFE500;
-  --white:#F5F5F2;
-  --muted:#A5A5A5;
-  --border:rgba(255,229,0,.15);
+  --bg: #090B0E;
+  --surface: #17191D;
+  --surface2: #202226;
+  --yellow: #FFE500;
+  --gold: #D6A928;
+  --white: #F5F5F2;
+  --gray: #A5A5A5;
+  --border: #303034;
 }
 
 * {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-  scroll-behavior:smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-  background:var(--bg);
-  color:var(--white);
-  font-family:"IBM Plex Sans Arabic",sans-serif;
-  line-height:1.9;
+  background: var(--bg);
+  color: var(--white);
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+  line-height: 2;
+}
+
+body, button, input, textarea, select {
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Lalezar", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+a, button, nav {
+  font-family: "Estedad", sans-serif;
+}
+
+p, li, .description {
+  font-family: "Vazirmatn", sans-serif;
+}
+
+.english, .number, .tag, .logo-en {
+  font-family: "Readex Pro", sans-serif;
+}
+
+.special-title {
+  font-family: "Kalameh", "Lalezar", sans-serif;
+  font-weight: 700;
 }
 
 a {
-  color:inherit;
-  text-decoration:none;
+  color: inherit;
+  text-decoration: none;
 }
 
 .container {
-  width:min(1120px,90%);
-  margin:auto;
+  width: min(1120px, 90%);
+  margin: auto;
 }
 
 /* HEADER */
 
 header {
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(9,11,14,.94);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(9,11,14,.96);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(15px);
 }
 
 .nav {
-  min-height:76px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
+  min-height: 82px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 }
 
 .logo {
-  direction:ltr;
-  font:38px "Lalezar",sans-serif;
-  white-space:nowrap;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--yellow);
+  font-family: "Lalezar", sans-serif;
+  font-size: 25px;
 }
 
-.logo span {
-  color:var(--yellow);
+.logo img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
 }
 
-.nav-links {
-  display:flex;
-  align-items:center;
-  gap:25px;
-  color:var(--muted);
-  font-size:13px;
+nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 23px;
+  font-size: 13px;
 }
 
-.nav-links a {
-  transition:.2s;
+nav a {
+  color: #ddd;
+  transition: .2s;
 }
 
-.nav-links a:hover {
-  color:var(--yellow);
+nav a:hover {
+  color: var(--yellow);
 }
 
-.nav-button {
-  background:var(--yellow);
-  color:#090B0E;
-  padding:8px 19px;
-  border-radius:8px;
-  font-size:12px;
-  font-weight:700;
-  transition:.2s;
+/* BUTTONS */
+
+.btn {
+  display: inline-block;
+  background: var(--yellow);
+  color: #090909;
+  padding: 11px 25px;
+  border-radius: 9px;
+  font-family: "Estedad", sans-serif;
+  font-weight: 800;
+  transition: .25s;
 }
 
-.nav-button:hover {
-  background:var(--mustard);
+.btn:hover {
+  background: var(--gold);
+  transform: translateY(-3px);
 }
 
 /* HERO */
 
 .hero {
-  position:relative;
-  overflow:hidden;
+  padding: 105px 0 95px;
   background:
-    radial-gradient(ellipse at 75% 35%,rgba(255,229,0,.11),transparent 48%),
-    radial-gradient(ellipse at 10% 90%,rgba(214,169,40,.08),transparent 45%);
+    radial-gradient(ellipse at 15% 30%, rgba(214,169,40,.14), transparent 40%),
+    radial-gradient(ellipse at 85% 80%, rgba(255,229,0,.08), transparent 35%);
 }
 
 .hero-grid {
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  align-items:center;
-  gap:45px;
-  padding:100px 0;
-  min-height:570px;
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  align-items: center;
+  gap: 50px;
 }
 
 .tag {
-  display:inline-block;
-  padding:6px 16px;
-  border:1px solid rgba(255,229,0,.3);
-  border-radius:30px;
-  color:var(--yellow);
-  background:rgba(255,229,0,.06);
-  font-size:12px;
-  margin-bottom:20px;
+  color: var(--yellow);
+  font-size: 12px;
+  letter-spacing: 2px;
 }
 
-.hero h1 {
-  font:64px "Lalezar",sans-serif;
-  line-height:1.5;
-  margin-bottom:17px;
+h1 {
+  font-size: clamp(43px, 7vw, 76px);
+  margin: 18px 0;
 }
 
-.hero h1 span {
-  color:var(--yellow);
+h1 span {
+  color: var(--yellow);
+  font-family: "Kalameh", "Lalezar", sans-serif;
 }
 
-.hero-text p {
-  color:var(--muted);
-  font-size:15px;
-  line-height:2.5;
-  max-width:590px;
+.hero p {
+  color: var(--gray);
+  max-width: 580px;
+  margin-bottom: 28px;
 }
 
-.hero-actions {
-  display:flex;
-  flex-wrap:wrap;
-  gap:13px;
-  margin-top:30px;
+.hero-card {
+  background: linear-gradient(145deg, #222222, #111214);
+  border: 1px solid #594817;
+  border-radius: 24px;
+  padding: 38px;
+  text-align: center;
+  box-shadow: 0 20px 70px #0008;
 }
 
-.btn {
-  display:inline-block;
-  padding:11px 25px;
-  border-radius:9px;
-  font-size:13px;
-  font-weight:600;
-  transition:.25s;
+.hero-card strong {
+  display: block;
+  font-family: "Readex Pro", sans-serif;
+  font-size: 56px;
+  color: var(--yellow);
 }
 
-.btn-primary {
-  background:var(--yellow);
-  color:#090B0E;
+.hero-card h2 {
+  font-size: 30px;
 }
 
-.btn-primary:hover {
-  background:var(--mustard);
-  transform:translateY(-3px);
+.hero-card p {
+  margin: 10px auto 0;
+  font-size: 14px;
 }
 
-.btn-outline {
-  border:1px solid var(--mustard);
-  color:var(--mustard);
+/* SECTIONS */
+
+section {
+  padding: 78px 0;
 }
 
-.btn-outline:hover {
-  background:var(--mustard);
-  color:#090B0E;
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-/* HERO VISUAL */
-
-.hero-visual {
-  min-height:340px;
-  border:1px solid var(--border);
-  border-radius:28px;
-  background:
-    radial-gradient(circle at center,rgba(255,229,0,.14),transparent 65%),
-    linear-gradient(145deg,#202126,#111216);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
+.section-title h2 {
+  font-size: 36px;
 }
 
-.hero-visual::before,
-.hero-visual::after {
-  content:"";
-  position:absolute;
-  width:220px;
-  height:220px;
-  border:1px solid rgba(255,229,0,.12);
-  border-radius:50%;
+.section-title p {
+  color: var(--gray);
+  font-size: 14px;
 }
 
-.hero-visual::after {
-  width:290px;
-  height:290px;
+/* CARDS */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
-.hero-brand {
-  position:relative;
-  z-index:2;
+.card {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  padding: 28px;
+  transition: .25s;
 }
 
-.hero-brand strong {
-  display:block;
-  direction:ltr;
-  font:85px "Lalezar",sans-serif;
-  color:var(--yellow);
-  line-height:1.3;
+.card:hover {
+  border-color: var(--gold);
+  transform: translateY(-5px);
+  background: var(--surface2);
 }
 
-.hero-brand span {
-  color:var(--mustard);
-  font-size:12px;
-  letter-spacing:5px;
+.number {
+  color: var(--yellow);
+  font-size: 27px;
+  font-weight: 700;
 }
 
-/* INTRO */
-
-.intro {
-  padding:35px 0;
+.card h3 {
+  font-family: "Kalameh", "Lalezar", sans-serif;
+  font-size: 25px;
+  margin: 8px 0;
 }
 
-.intro-box {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
+.card p {
+  color: var(--gray);
+  font-size: 13px;
 }
 
-.intro-item {
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:15px;
-  padding:22px;
-  text-align:center;
+/* WHY */
+
+.why {
+  background: #111316;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
-.intro-item strong {
-  display:block;
-  color:var(--yellow);
-  font:24px "Lalezar",sans-serif;
-  margin-bottom:4px;
+.why-content {
+  max-width: 760px;
+  margin: auto;
+  text-align: center;
 }
 
-.intro-item span {
-  color:var(--muted);
-  font-size:12px;
+.why-content h2 {
+  font-size: 38px;
+  margin-bottom: 15px;
 }
 
-/* SECTION GENERAL */
-
-section.content-section {
-  padding:85px 0;
-}
-
-.section-heading {
-  text-align:center;
-  margin-bottom:38px;
-}
-
-.section-heading h2 {
-  font:36px "Kalameh",sans-serif;
-  margin-bottom:8px;
-}
-
-.section-heading h2 span {
-  color:var(--yellow);
-}
-
-.section-heading p {
-  color:var(--muted);
-  font-size:13px;
-}
-
-/* SERVICES */
-
-.services {
-  background:#0D0F12;
-}
-
-.service-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.service-card {
-  padding:28px;
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:18px;
-  transition:.25s;
-}
-
-.service-card:hover {
-  transform:translateY(-6px);
-  border-color:var(--yellow);
-}
-
-.service-number {
-  direction:ltr;
-  color:var(--yellow);
-  font:34px "Lalezar",sans-serif;
-  margin-bottom:10px;
-}
-
-.service-card h3 {
-  font:23px "Kalameh",sans-serif;
-  margin-bottom:10px;
-}
-
-.service-card p {
-  color:var(--muted);
-  font-size:13px;
-  line-height:2.3;
-}
-
-.service-link {
-  display:inline-block;
-  margin-top:18px;
-  color:var(--mustard);
-  font-size:12px;
-}
-
-/* WHY ESLO */
-
-.why-grid {
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:18px;
-}
-
-.why-card {
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:15px;
-  padding:23px;
-}
-
-.why-card h3 {
-  color:var(--yellow);
-  font:22px "Kalameh",sans-serif;
-  margin-bottom:8px;
-}
-
-.why-card p {
-  color:var(--muted);
-  font-size:13px;
-  line-height:2.2;
-}
-
-/* ADVISORS */
-
-.advisors {
-  background:#0D0F12;
-}
-
-.advisor-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.advisor-card {
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:28px 20px;
-  text-align:center;
-}
-
-.advisor-avatar {
-  width:85px;
-  height:85px;
-  margin:0 auto 15px;
-  border-radius:50%;
-  background:linear-gradient(145deg,var(--yellow),var(--mustard));
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#090B0E;
-  font:35px "Lalezar",sans-serif;
-}
-
-.advisor-card h3 {
-  font:21px "Kalameh",sans-serif;
-  margin-bottom:5px;
-}
-
-.advisor-card p {
-  color:var(--muted);
-  font-size:12px;
-  margin-bottom:15px;
-}
-
-.advisor-card a {
-  color:var(--yellow);
-  font-size:12px;
-}
-
-/* ABOUT */
-
-.about-box {
-  padding:42px;
-  border:1px solid var(--border);
-  border-radius:22px;
-  background:
-    radial-gradient(circle at 90% 10%,rgba(255,229,0,.09),transparent 40%),
-    var(--surface);
-  text-align:center;
-}
-
-.about-box h2 {
-  font:34px "Kalameh",sans-serif;
-  margin-bottom:12px;
-}
-
-.about-box p {
-  color:var(--muted);
-  max-width:750px;
-  margin:0 auto 23px;
-  font-size:14px;
-  line-height:2.5;
+.why-content p {
+  color: var(--gray);
 }
 
 /* CTA */
 
 .cta {
-  padding:20px 0 85px;
+  text-align: center;
+  background: linear-gradient(120deg, #201b0b, #111316);
+  border: 1px solid #594817;
+  border-radius: 22px;
+  padding: 52px 20px;
 }
 
-.cta-box {
-  background:linear-gradient(120deg,#D6A928,#FFE500);
-  color:#090B0E;
-  border-radius:22px;
-  padding:45px 25px;
-  text-align:center;
+.cta h2 {
+  font-size: 35px;
+  margin-bottom: 12px;
 }
 
-.cta-box h2 {
-  font:38px "Lalezar",sans-serif;
-  margin-bottom:8px;
-}
-
-.cta-box p {
-  font-size:13px;
-  margin-bottom:20px;
-}
-
-.cta-button {
-  display:inline-block;
-  background:#090B0E;
-  color:var(--yellow);
-  padding:11px 27px;
-  border-radius:9px;
-  font-size:13px;
-  font-weight:700;
-  transition:.2s;
-}
-
-.cta-button:hover {
-  background:#252525;
-  transform:translateY(-3px);
+.cta p {
+  color: var(--gray);
+  margin-bottom: 24px;
 }
 
 /* FOOTER */
 
 footer {
-  background:#07080A;
-  border-top:1px solid var(--border);
-  padding:35px 0 20px;
+  border-top: 1px solid var(--border);
+  padding: 32px 0;
+  text-align: center;
+  color: var(--gray);
+  font-size: 12px;
 }
 
-.footer-grid {
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:30px;
-  margin-bottom:25px;
-}
-
-.footer-logo {
-  direction:ltr;
-  font:36px "Lalezar",sans-serif;
-}
-
-.footer-logo span {
-  color:var(--yellow);
-}
-
-.footer-description {
-  color:var(--muted);
-  font-size:12px;
-  max-width:400px;
-  line-height:2.3;
-}
-
-.footer-links h3 {
-  color:var(--mustard);
-  font:20px "Kalameh",sans-serif;
-  margin-bottom:10px;
-}
-
-.footer-links a {
-  display:block;
-  color:var(--muted);
-  font-size:12px;
-  margin:5px 0;
-}
-
-.footer-links a:hover {
-  color:var(--yellow);
-}
-
-.copyright {
-  border-top:1px solid var(--border);
-  padding-top:17px;
-  text-align:center;
-  color:#777;
-  font-size:11px;
+footer strong {
+  color: var(--yellow);
+  font-family: "Readex Pro", sans-serif;
 }
 
 /* RESPONSIVE */
 
-@media(max-width:800px) {
-  .nav-links {
-    gap:13px;
-    font-size:11px;
-  }
-
+@media(max-width: 760px) {
   .hero-grid {
-    grid-template-columns:1fr;
-    padding:70px 0;
+    grid-template-columns: 1fr;
   }
 
-  .hero-visual {
-    min-height:250px;
+  .cards {
+    grid-template-columns: 1fr;
   }
 
-  .hero h1 {
-    font-size:50px;
-  }
-
-  .service-grid,
-  .advisor-grid {
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-@media(max-width:550px) {
   .nav {
-    min-height:68px;
+    padding: 13px 0;
+    flex-direction: column;
   }
 
-  .nav-links {
-    display:none;
+  nav {
+    justify-content: center;
+    gap: 12px;
   }
 
-  .hero h1 {
-    font-size:43px;
+  .hero {
+    padding: 65px 0;
   }
 
-  .hero-grid {
-    padding:60px 0;
-  }
-
-  .hero-visual {
-    min-height:220px;
-  }
-
-  .hero-brand strong {
-    font-size:65px;
-  }
-
-  .intro-box {
-    grid-template-columns:1fr;
-  }
-
-  .service-grid,
-  .advisor-grid,
-  .why-grid {
-    grid-template-columns:1fr;
-  }
-
-  section.content-section {
-    padding:60px 0;
-  }
-
-  .section-heading h2 {
-    font-size:30px;
-  }
-
-  .about-box {
-    padding:28px 20px;
-  }
-
-  .cta-box h2 {
-    font-size:30px;
-  }
-
-  .footer-grid {
-    grid-template-columns:1fr;
+  h1 {
+    font-size: 48px;
   }
 }
 </style>
@@ -645,261 +372,136 @@ footer {
 <header>
   <div class="container nav">
 
-    <a href="./" class="logo">ESLO<span>.</span></a>
+    <a class="logo" href="./">
+      <img src="eslo-logo.png" alt="لوگوی آکادمی اسلو"
+           onerror="this.style.display='none'">
+      ESLO ACADEMY
+    </a>
 
-    <nav class="nav-links">
+    <nav>
       <a href="./">خانه</a>
       <a href="ensani-counseling/">مشاوره</a>
       <a href="advisors/">مشاوران</a>
       <a href="about/">درباره ما</a>
+      <a href="register/">ثبت‌نام</a>
     </nav>
-
-    <a href="register/" class="nav-button">ثبت‌نام</a>
 
   </div>
 </header>
 
 <main>
 
-<!-- HERO -->
-
-<section class="hero">
+<div class="hero">
   <div class="container hero-grid">
 
-    <div class="hero-text">
-      <span class="tag">WELCOME TO ESLO ACADEMY</span>
+    <div>
+      <div class="tag">WELCOME TO ESLO ACADEMY</div>
 
       <h1>
-        مسیر موفقیتت رو
-        <span>متفاوت بساز.</span>
+        مسیر موفقیتت را<br>
+        <span>هوشمندانه</span> بساز.
       </h1>
 
       <p>
-        آینده اتفاقی ساخته نمی‌شود.
-        با برنامه‌ریزی درست، شناخت توانایی‌ها و تلاش هدفمند،
-        مسیر پیشرفت تحصیلی خودت را بساز.
+        در آکادمی اسلو، برای رسیدن به اهداف تحصیلی‌ات
+        برنامه‌ریزی کن، یاد بگیر و با انگیزه پیش برو.
       </p>
 
-      <div class="hero-actions">
-        <a href="register/" class="btn btn-primary">
-          شروع ثبت‌نام ←
-        </a>
-
-        <a href="about/" class="btn btn-outline">
-          آشنایی با اسلو
-        </a>
-      </div>
+      <a class="btn" href="register/">شروع ثبت‌نام</a>
     </div>
 
-    <div class="hero-visual">
-      <div class="hero-brand">
-        <strong>ESLO.</strong>
-        <span>LEARN · GROW · ACHIEVE</span>
-      </div>
+    <div class="hero-card">
+      <strong>ESLO.</strong>
+      <h2 class="special-title">آکادمی اسلو</h2>
+      <p>برنامه‌ریزی، آموزش و همراهی در مسیر موفقیت</p>
     </div>
 
   </div>
-</section>
+</div>
 
-<!-- INTRO -->
-
-<section class="intro">
-  <div class="container intro-box">
-
-    <div class="intro-item">
-      <strong>LEARN</strong>
-      <span>یادگیری هدفمند</span>
-    </div>
-
-    <div class="intro-item">
-      <strong>GROW</strong>
-      <span>رشد و پیشرفت</span>
-    </div>
-
-    <div class="intro-item">
-      <strong>ACHIEVE</strong>
-      <span>رسیدن به اهداف</span>
-    </div>
-
-  </div>
-</section>
-
-<!-- SERVICES -->
-
-<section class="content-section services">
+<section>
   <div class="container">
 
-    <div class="section-heading">
-      <h2>خدمات <span>آکادمی اسلو</span></h2>
-      <p>برای ساختن یک مسیر تحصیلی بهتر، همراه تو هستیم.</p>
+    <div class="section-title">
+      <h2>سه قدم تا پیشرفت</h2>
+      <p>هر موفقیت بزرگی از یک شروع درست آغاز می‌شود.</p>
     </div>
 
-    <div class="service-grid">
+    <div class="cards">
 
-      <article class="service-card">
-        <div class="service-number">01</div>
-        <h3>مشاوره تحصیلی</h3>
-        <p>
-          شناخت شرایط تحصیلی و انتخاب مسیر مناسب
-          برای رسیدن به اهداف آموزشی.
-        </p>
-        <a href="ensani-counseling/" class="service-link">
-          مشاهده خدمات ←
-        </a>
-      </article>
-
-      <article class="service-card">
-        <div class="service-number">02</div>
-        <h3>برنامه‌ریزی درسی</h3>
-        <p>
-          طراحی برنامه مطالعاتی منظم و هدفمند
-          متناسب با شرایط دانش‌آموز.
-        </p>
-        <a href="ensani-counseling/" class="service-link">
-          اطلاعات بیشتر ←
-        </a>
-      </article>
-
-      <article class="service-card">
-        <div class="service-number">03</div>
-        <h3>معرفی مشاوران</h3>
-        <p>
-          آشنایی با بخش مشاوران و مشاهده اطلاعات
-          و خدمات ارائه‌شده.
-        </p>
-        <a href="advisors/" class="service-link">
-          مشاهده مشاوران ←
-        </a>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- WHY ESLO -->
-
-<section class="content-section">
-  <div class="container">
-
-    <div class="section-heading">
-      <h2>چرا <span>آکادمی اسلو؟</span></h2>
-      <p>نگاه ما به آموزش بر پایه چند اصل ساده است.</p>
-    </div>
-
-    <div class="why-grid">
-
-      <div class="why-card">
-        <h3>هدف‌گذاری روشن</h3>
-        <p>
-          برای پیشرفت، ابتدا باید مقصد را شناخت
-          و مسیر رسیدن به آن را مشخص کرد.
-        </p>
+      <div class="card">
+        <div class="number">01</div>
+        <h3>یادگیری</h3>
+        <p>مفاهیم را اصولی یاد بگیر و پایه‌های علمی خودت را تقویت کن.</p>
       </div>
 
-      <div class="why-card">
-        <h3>برنامه‌ریزی اصولی</h3>
-        <p>
-          برنامه مناسب باید با شرایط واقعی
-          و توانایی‌های هر دانش‌آموز هماهنگ باشد.
-        </p>
+      <div class="card">
+        <div class="number">02</div>
+        <h3>برنامه‌ریزی</h3>
+        <p>با برنامه‌ای منظم و هدفمند، مسیر پیشرفتت را مشخص کن.</p>
       </div>
 
-      <div class="why-card">
-        <h3>تلاش مستمر</h3>
-        <p>
-          پیشرفت نتیجه قدم‌های کوچک و پیوسته
-          در مسیر یادگیری است.
-        </p>
-      </div>
-
-      <div class="why-card">
-        <h3>شناخت توانایی‌ها</h3>
-        <p>
-          شناخت نقاط قوت و زمینه‌های قابل بهبود،
-          تصمیم‌گیری را آسان‌تر می‌کند.
-        </p>
+      <div class="card">
+        <div class="number">03</div>
+        <h3>دستیابی</h3>
+        <p>با استمرار و تلاش، قدم‌به‌قدم به هدف‌هایت نزدیک شو.</p>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ADVISORS -->
-
-<section class="content-section advisors">
+<section>
   <div class="container">
 
-    <div class="section-heading">
-      <h2>تیم <span>مشاوران</span></h2>
-      <p>برای آشنایی با بخش مشاوران آکادمی اسلو.</p>
+    <div class="section-title">
+      <h2>خدمات آکادمی اسلو</h2>
+      <p>بخش‌های مختلف آکادمی را بشناس.</p>
     </div>
 
-    <div class="advisor-grid">
+    <div class="cards">
 
-      <article class="advisor-card">
-        <div class="advisor-avatar">E</div>
-        <h3>مشاور شماره یک</h3>
-        <p>معرفی و اطلاعات مشاور</p>
-        <a href="advisors/">مشاهده جزئیات ←</a>
-      </article>
-
-      <article class="advisor-card">
-        <div class="advisor-avatar">S</div>
-        <h3>مشاور شماره دو</h3>
-        <p>معرفی و اطلاعات مشاور</p>
-        <a href="advisors/">مشاهده جزئیات ←</a>
-      </article>
-
-      <article class="advisor-card">
-        <div class="advisor-avatar">L</div>
-        <h3>مشاور شماره سه</h3>
-        <p>معرفی و اطلاعات مشاور</p>
-        <a href="advisors/">مشاهده جزئیات ←</a>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-
-<section class="content-section">
-  <div class="container">
-
-    <div class="about-box">
-      <h2>داستان آکادمی اسلو</h2>
-
-      <p>
-        آکادمی اسلو با هدف ایجاد فضایی برای یادگیری،
-        برنامه‌ریزی و پیشرفت تحصیلی شکل گرفته است.
-        باور داریم هر دانش‌آموز می‌تواند با شناخت بهتر
-        توانایی‌های خود و داشتن یک مسیر مشخص،
-        قدم‌های مؤثرتری برای آینده بردارد.
-      </p>
-
-      <a href="about/" class="btn btn-outline">
-        بیشتر درباره ما بدانید
+      <a class="card" href="ensani-counseling/">
+        <div class="number">01</div>
+        <h3>مشاوره انسانی</h3>
+        <p>برنامه‌ریزی و همراهی تحصیلی ویژه دانش‌آموزان انسانی.</p>
       </a>
-    </div>
 
+      <a class="card" href="advisors/">
+        <div class="number">02</div>
+        <h3>تیم مشاوران</h3>
+        <p>آشنایی با مشاوران و اعضای مجموعه آکادمی اسلو.</p>
+      </a>
+
+      <a class="card" href="about/">
+        <div class="number">03</div>
+        <h3>درباره آکادمی</h3>
+        <p>با اهداف، ارزش‌ها و مسیر فعالیت مجموعه آشنا شو.</p>
+      </a>
+
+    </div>
   </div>
 </section>
 
-<!-- CTA -->
+<section class="why">
+  <div class="container why-content">
+    <h2>چرا آکادمی اسلو؟</h2>
 
-<section class="cta">
+    <p>
+      ما باور داریم موفقیت فقط با تلاش به دست نمی‌آید؛
+      داشتن هدف روشن، برنامه مناسب و استمرار نیز اهمیت زیادی دارد.
+      آکادمی اسلو تلاش می‌کند در این مسیر همراه دانش‌آموزان باشد.
+    </p>
+  </div>
+</section>
+
+<section>
   <div class="container">
 
-    <div class="cta-box">
-      <h2>آماده شروع یک مسیر جدیدی؟</h2>
-
-      <p>
-        اولین قدم برای ساختن آینده‌ای بهتر را بردار.
-      </p>
-
-      <a href="register/" class="cta-button">
-        ثبت‌نام در آکادمی اسلو ←
-      </a>
+    <div class="cta">
+      <h2>آماده شروعی متفاوت هستی؟</h2>
+      <p>قدم اول را بردار و مسیرت را با آکادمی اسلو آغاز کن.</p>
+      <a class="btn" href="register/">ورود به صفحه ثبت‌نام</a>
     </div>
 
   </div>
@@ -907,36 +509,10 @@ footer {
 
 </main>
 
-<!-- FOOTER -->
-
 <footer>
   <div class="container">
-
-    <div class="footer-grid">
-
-      <div>
-        <div class="footer-logo">ESLO<span>.</span></div>
-        <p class="footer-description">
-          آکادمی اسلو؛ همراه تو در مسیر یادگیری،
-          برنامه‌ریزی و پیشرفت تحصیلی.
-        </p>
-      </div>
-
-      <div class="footer-links">
-        <h3>دسترسی سریع</h3>
-        <a href="./">صفحه اصلی</a>
-        <a href="ensani-counseling/">مشاوره تحصیلی</a>
-        <a href="advisors/">مشاوران</a>
-        <a href="about/">درباره ما</a>
-        <a href="register/">ثبت‌نام</a>
-      </div>
-
-    </div>
-
-    <div class="copyright">
-      ESLO ACADEMY · © 2026
-    </div>
-
+    <strong>ESLO ACADEMY</strong>
+    <p>تمام حقوق برای آکادمی اسلو محفوظ است.</p>
   </div>
 </footer>
 
