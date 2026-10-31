@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -5,295 +6,118 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ثبت‌نام | آکادمی اسلو</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Estedad:wght@300;400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-@font-face {
-  font-family:Kalameh;
-  src:url("../fonts/Kalameh-Bold.woff2") format("woff2");
-  font-weight:700;
-  font-display:swap;
-}
-
-:root {
-  --bg:#090B0E;
-  --surface:#17191D;
-  --surface2:#202226;
-  --yellow:#FFE500;
-  --gold:#D6A928;
-  --white:#F5F5F2;
-  --gray:#A5A5A5;
-  --border:#303034;
-}
-
-* {
+*{box-sizing:border-box}
+body{
   margin:0;
-  padding:0;
-  box-sizing:border-box;
+  font-family:'Vazirmatn',sans-serif;
+  background:#071426;
+  color:#f5f7fc;
 }
-
-html { scroll-behavior:smooth; }
-
-body {
-  background:var(--bg);
-  color:var(--white);
-  font-family:"IBM Plex Sans Arabic",sans-serif;
-  line-height:2;
-}
-
-h1,h2,h3,h4 {
-  font-family:Lalezar,sans-serif;
-  font-weight:400;
-  line-height:1.5;
-}
-
-p,li { font-family:Vazirmatn,sans-serif; }
-a,button,nav { font-family:Estedad,sans-serif; }
-.number,.english,.tag { font-family:"Readex Pro",sans-serif; }
-.special { font-family:Kalameh,Lalezar,sans-serif; }
-
-a {
-  text-decoration:none;
-  color:inherit;
-}
-
-.container {
-  width:min(1100px,90%);
-  margin:auto;
-}
-
-/* HEADER */
-
-header {
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(9,11,14,.96);
-  border-bottom:1px solid var(--border);
-  backdrop-filter:blur(15px);
-}
-
-.nav {
-  min-height:78px;
+header{
+  padding:25px 7%;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  gap:20px;
-}
-
-.logo {
-  color:var(--yellow);
-  font-family:Lalezar,sans-serif;
-  font-size:24px;
-  display:flex;
   align-items:center;
-  gap:10px;
+  border-bottom:1px solid #203958;
 }
-
-.logo img {
-  width:45px;
-  height:45px;
-  object-fit:contain;
+.logo{font-size:22px;font-weight:800;color:#fff}
+.logo span{color:#60a5fa}
+header a{
+  color:#b9d8ff;
+  text-decoration:none;
+  font-size:14px;
 }
-
-nav {
-  display:flex;
-  flex-wrap:wrap;
-  gap:20px;
-  font-size:13px;
+.container{
+  max-width:850px;
+  margin:45px auto;
+  padding:0 18px;
 }
-
-nav a { color:#ddd; }
-nav a:hover { color:var(--yellow); }
-
-/* BUTTON */
-
-.btn {
-  display:inline-block;
-  background:var(--yellow);
-  color:#090909;
-  padding:11px 24px;
-  border-radius:9px;
-  font-weight:800;
-  transition:.25s;
-}
-
-.btn:hover {
-  background:var(--gold);
-  transform:translateY(-3px);
-}
-
-/* HERO */
-
-.hero {
-  padding:85px 0 55px;
-  background:
-    radial-gradient(ellipse at 15% 30%,rgba(214,169,40,.14),transparent 42%),
-    radial-gradient(ellipse at 85% 80%,rgba(255,229,0,.07),transparent 35%);
-}
-
-.hero-content {
-  max-width:800px;
-  margin:auto;
-  text-align:center;
-}
-
-.tag {
-  color:var(--yellow);
-  font-size:12px;
-  letter-spacing:2px;
-}
-
-.hero h1 {
-  font-size:clamp(42px,7vw,68px);
-  margin:15px 0;
-}
-
-.hero h1 span { color:var(--yellow); }
-
-.hero p {
-  color:var(--gray);
-  max-width:650px;
-  margin:auto;
-}
-
-/* REGISTRATION */
-
-.registration {
-  padding:40px 0 85px;
-}
-
-.register-grid {
-  display:grid;
-  grid-template-columns:.8fr 1.2fr;
-  gap:25px;
-  align-items:stretch;
-}
-
-.info-panel {
-  background:linear-gradient(145deg,#29220d,#17191d);
-  border:1px solid #594817;
-  border-radius:20px;
+.intro{text-align:center;margin-bottom:30px}
+.intro h1{font-size:30px;margin-bottom:10px}
+.intro h1 span{color:#60a5fa}
+.intro p{color:#a9bad0;font-size:14px;line-height:2}
+.form-box{
+  background:#10233d;
+  border:1px solid #29466a;
+  border-radius:22px;
   padding:30px;
+  box-shadow:0 20px 55px #0005;
 }
-
-.info-panel h2 {
-  font-family:Kalameh,Lalezar,sans-serif;
-  font-size:29px;
-  margin-bottom:15px;
+.section-title{
+  color:#79b8ff;
+  font-size:17px;
+  font-weight:800;
+  margin:25px 0 18px;
+  padding-right:12px;
+  border-right:3px solid #3b82f6;
 }
-
-.info-panel p {
-  color:#c2bda9;
-  font-size:14px;
-}
-
-.info-list {
-  margin-top:25px;
+.section-title:first-child{margin-top:0}
+.grid{
   display:grid;
-  gap:15px;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
 }
-
-.info-item {
-  border-right:3px solid var(--yellow);
-  padding:5px 13px;
-}
-
-.info-item strong {
+.field{margin-bottom:17px}
+label{
   display:block;
-  color:var(--yellow);
-  font-family:Estedad,sans-serif;
-  font-size:14px;
+  font-size:13px;
+  margin-bottom:9px;
+  color:#dceaff;
 }
-
-.info-item span {
-  color:#c2bda9;
-  font-family:Vazirmatn,sans-serif;
-  font-size:12px;
-}
-
-.form-panel {
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:20px;
-  padding:18px;
-  min-width:0;
-}
-
-.form-panel h2 {
-  font-size:28px;
-  margin:5px 10px 15px;
-}
-
-.form-panel iframe {
-  display:block;
+input,select,textarea{
   width:100%;
-  min-height:850px;
+  padding:14px;
+  border:1px solid #355273;
+  border-radius:11px;
+  background:#091a30;
+  color:white;
+  font-family:inherit;
+  font-size:14px;
+  outline:none;
+}
+input:focus,select:focus,textarea:focus{
+  border-color:#60a5fa;
+  box-shadow:0 0 0 3px #3b82f622;
+}
+input::placeholder,textarea::placeholder{color:#8296b1}
+select option{background:#10233d}
+textarea{min-height:110px;resize:vertical}
+.full{grid-column:1/-1}
+button{
+  width:100%;
   border:0;
+  padding:16px;
+  margin-top:12px;
   border-radius:12px;
-  background:#fff;
+  background:linear-gradient(110deg,#2563eb,#38bdf8);
+  color:white;
+  font-family:inherit;
+  font-size:16px;
+  font-weight:800;
+  cursor:pointer;
 }
-
-/* NOTICE */
-
-.notice {
-  margin-top:20px;
-  padding:17px;
-  background:#201b0b;
-  border:1px solid #594817;
-  border-radius:12px;
-}
-
-.notice p {
-  color:#d9d2b5;
-  font-size:12px;
-}
-
-/* FOOTER */
-
-footer {
-  border-top:1px solid var(--border);
-  padding:30px 0;
+button:hover{filter:brightness(1.12)}
+.note{
   text-align:center;
-  color:var(--gray);
   font-size:12px;
+  color:#9eb2cc;
+  line-height:2;
+  margin-top:18px;
 }
-
-footer strong {
-  color:var(--yellow);
-  font-family:"Readex Pro",sans-serif;
+footer{
+  text-align:center;
+  color:#71849e;
+  font-size:12px;
+  padding:25px;
 }
-
-/* MOBILE */
-
-@media(max-width:760px) {
-  .register-grid {
-    grid-template-columns:1fr;
-  }
-
-  .nav {
-    flex-direction:column;
-    padding:12px 0;
-  }
-
-  nav {
-    justify-content:center;
-    gap:12px;
-  }
-
-  .hero {
-    padding:60px 0 35px;
-  }
-
-  .form-panel {
-    padding:10px;
-  }
-
-  .form-panel iframe {
-    min-height:950px;
-  }
+@media(max-width:600px){
+  .grid{grid-template-columns:1fr}
+  .form-box{padding:20px}
+  .intro h1{font-size:25px}
+  header{padding:20px}
 }
 </style>
 </head>
@@ -301,109 +125,193 @@ footer strong {
 <body>
 
 <header>
-  <div class="container nav">
-
-    <a class="logo" href="../">
-      <img src="../eslo-logo.png" alt="لوگوی اسلو"
-           onerror="this.style.display='none'">
-      ESLO ACADEMY
-    </a>
-
-    <nav>
-      <a href="../">خانه</a>
-      <a href="../ensani-counseling/">مشاوره</a>
-      <a href="../advisors/">مشاوران</a>
-      <a href="../about/">درباره ما</a>
-      <a href="./">ثبت‌نام</a>
-    </nav>
-
-  </div>
+  <div class="logo">ESLO <span>ACADEMY</span></div>
+  <a href="../index.html">بازگشت به صفحه اصلی ←</a>
 </header>
 
-<main>
+<main class="container">
 
-<div class="hero">
-  <div class="container hero-content">
-
-    <div class="tag">JOIN ESLO ACADEMY</div>
-
-    <h1>
-      شروع مسیر <span class="special">موفقیت</span>
-    </h1>
-
+  <div class="intro">
+    <h1>فرم ثبت‌نام <span>آکادمی اسلو</span></h1>
     <p>
-      برای شروع همکاری با آکادمی اسلو،
-      فرم ثبت‌نام را تکمیل کن.
+      اولین قدم برای ساختن مسیر موفقیت تحصیلی تو.<br>
+      اطلاعات زیر را با دقت تکمیل کن.
     </p>
-
   </div>
-</div>
 
-<section class="registration">
-  <div class="container register-grid">
+  <div class="form-box">
 
-    <div class="info-panel">
+    <form action="https://formsubmit.co/esloasli0@gmail.com" method="POST">
 
-      <h2>به آکادمی اسلو خوش آمدی</h2>
+      <input type="hidden" name="_subject" value="ثبت‌نام جدید آکادمی اسلو">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="true">
 
-      <p>
-        اینجا می‌توانی درخواست خودت را برای دریافت خدمات
-        آموزشی و مشاوره تحصیلی ثبت کنی.
-        پس از ارسال فرم، مراحل بعدی از طریق راه ارتباطی
-        اعلام‌شده در فرم پیگیری خواهد شد.
+      <div class="section-title">۱. اطلاعات فردی</div>
+
+      <div class="grid">
+
+        <div class="field">
+          <label>نام و نام خانوادگی *</label>
+          <input type="text" name="نام و نام خانوادگی" placeholder="نام کامل" required>
+        </div>
+
+        <div class="field">
+          <label>شماره تماس دانش‌آموز *</label>
+          <input type="tel" name="شماره تماس دانش‌آموز" placeholder="09xxxxxxxxx" pattern="09[0-9]{9}" required>
+        </div>
+
+        <div class="field">
+          <label>شماره تماس والدین</label>
+          <input type="tel" name="شماره تماس والدین" placeholder="شماره تماس">
+        </div>
+
+        <div class="field">
+          <label>شهر محل سکونت *</label>
+          <input type="text" name="شهر" placeholder="نام شهر" required>
+        </div>
+
+      </div>
+
+      <div class="section-title">۲. اطلاعات تحصیلی</div>
+
+      <div class="grid">
+
+        <div class="field">
+          <label>پایه تحصیلی *</label>
+          <select name="پایه تحصیلی" required>
+            <option value="">انتخاب پایه</option>
+            <option>دهم انسانی</option>
+            <option>یازدهم انسانی</option>
+            <option>دوازدهم انسانی</option>
+            <option>فارغ‌التحصیل</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>معدل آخرین کارنامه</label>
+          <input type="number" name="معدل" min="0" max="20" step="0.01" placeholder="مثلاً 18.50">
+        </div>
+
+        <div class="field">
+          <label>میانگین مطالعه روزانه</label>
+          <select name="ساعت مطالعه">
+            <option value="">انتخاب کنید</option>
+            <option>کمتر از ۲ ساعت</option>
+            <option>۲ تا ۴ ساعت</option>
+            <option>۴ تا ۶ ساعت</option>
+            <option>۶ تا ۸ ساعت</option>
+            <option>بیشتر از ۸ ساعت</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>وضعیت آزمون آزمایشی</label>
+          <select name="آزمون آزمایشی">
+            <option value="">انتخاب کنید</option>
+            <option>شرکت نمی‌کنم</option>
+            <option>قلم‌چی</option>
+            <option>ماز</option>
+            <option>گزینه دو</option>
+            <option>سایر</option>
+          </select>
+        </div>
+
+        <div class="field full">
+          <label>تراز یا رتبه کنکور (در صورت وجود)</label>
+          <input type="text" name="تراز یا رتبه" placeholder="در صورت داشتن اطلاعات وارد کنید">
+        </div>
+
+      </div>
+
+      <div class="section-title">۳. وضعیت درسی</div>
+
+      <div class="grid">
+
+        <div class="field">
+          <label>قوی‌ترین درس شما</label>
+          <select name="قوی‌ترین درس">
+            <option value="">انتخاب کنید</option>
+            <option>علوم و فنون</option>
+            <option>عربی</option>
+            <option>ریاضی و آمار</option>
+            <option>جامعه‌شناسی</option>
+            <option>فلسفه و منطق</option>
+            <option>تاریخ و جغرافیا</option>
+            <option>اقتصاد</option>
+            <option>روان‌شناسی</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>ضعیف‌ترین درس شما</label>
+          <select name="ضعیف‌ترین درس">
+            <option value="">انتخاب کنید</option>
+            <option>علوم و فنون</option>
+            <option>عربی</option>
+            <option>ریاضی و آمار</option>
+            <option>جامعه‌شناسی</option>
+            <option>فلسفه و منطق</option>
+            <option>تاریخ و جغرافیا</option>
+            <option>اقتصاد</option>
+            <option>روان‌شناسی</option>
+          </select>
+        </div>
+
+        <div class="field full">
+          <label>مهم‌ترین مشکل مطالعاتی شما چیست؟</label>
+          <textarea name="مشکل مطالعاتی" placeholder="مثلاً نداشتن برنامه، فراموشی مطالب، کمبود ساعت مطالعه و ..."></textarea>
+        </div>
+
+      </div>
+
+      <div class="section-title">۴. هدف و خدمات موردنیاز</div>
+
+      <div class="grid">
+
+        <div class="field">
+          <label>هدف اصلی شما چیست؟</label>
+          <select name="هدف">
+            <option value="">انتخاب کنید</option>
+            <option>قبولی فرهنگیان</option>
+            <option>قبولی دانشگاه دولتی</option>
+            <option>افزایش معدل</option>
+            <option>بهبود عملکرد درسی</option>
+            <option>سایر اهداف</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>چه خدماتی نیاز دارید؟</label>
+          <select name="خدمات موردنیاز">
+            <option value="">انتخاب کنید</option>
+            <option>برنامه‌ریزی درسی</option>
+            <option>مشاوره تحصیلی</option>
+            <option>پیگیری و پشتیبانی</option>
+            <option>برنامه‌ریزی و مشاوره کامل</option>
+          </select>
+        </div>
+
+        <div class="field full">
+          <label>توضیحات تکمیلی</label>
+          <textarea name="توضیحات" placeholder="هر نکته‌ای که فکر می‌کنی باید بدانیم..."></textarea>
+        </div>
+
+      </div>
+
+      <button type="submit">ارسال درخواست ثبت‌نام ←</button>
+
+      <p class="note">
+        پس از ارسال اطلاعات، درخواست شما برای بررسی به آکادمی اسلو ارسال می‌شود.
       </p>
 
-      <div class="info-list">
-
-        <div class="info-item">
-          <strong>مرحله اول</strong>
-          <span>تکمیل اطلاعات اولیه</span>
-        </div>
-
-        <div class="info-item">
-          <strong>مرحله دوم</strong>
-          <span>بررسی درخواست ثبت‌شده</span>
-        </div>
-
-        <div class="info-item">
-          <strong>مرحله سوم</strong>
-          <span>هماهنگی برای شروع همکاری</span>
-        </div>
-
-      </div>
-
-      <div class="notice">
-        <p>
-          لطفاً اطلاعات را با دقت وارد کن و از صحت
-          اطلاعات تماس خود مطمئن شو.
-        </p>
-      </div>
-
-    </div>
-
-    <div class="form-panel">
-
-      <h2>فرم ثبت‌نام</h2>
-
-      <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLScoLv42bU9C5kpBHL3-TbJ_RcredT6ws43LU0KvbFgmt8LUpg/viewform?embedded=true"
-        title="فرم ثبت‌نام آکادمی اسلو"
-        loading="lazy">
-        در حال بارگذاری فرم...
-      </iframe>
-
-    </div>
-
+    </form>
   </div>
-</section>
 
 </main>
 
 <footer>
-  <div class="container">
-    <strong>ESLO ACADEMY</strong>
-    <p>تمام حقوق برای آکادمی اسلو محفوظ است.</p>
-  </div>
+  ESLO ACADEMY | مسیر موفقیت از اینجا آغاز می‌شود
 </footer>
 
 </body>
