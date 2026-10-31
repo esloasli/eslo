@@ -1,162 +1,456 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مشاوره کنکور انسانی | آکادمی اسلو</title>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#080d1c">
+<title>مشاوره تحصیلی انسانی | آکادمی اسلو</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Vazirmatn',sans-serif;background:#080f20;color:#fff;line-height:2}
-a{text-decoration:none;color:inherit}
-.container{width:90%;max-width:1100px;margin:auto}
-header{background:#101d33;padding:18px 0;border-bottom:1px solid #263b59}
-nav{display:flex;justify-content:space-between;align-items:center;gap:15px}
-.logo{font-size:23px;color:#55c8ff;font-weight:900}
-nav a{font-size:13px;color:#d5e3f5}
-.hero{text-align:center;padding:90px 15px;background:radial-gradient(ellipse at top,#194779,#080f20 75%)}
-.tag{color:#55c8ff;font-size:13px}
-h1{font-size:clamp(30px,5vw,48px);line-height:1.6;margin:15px 0}
-.hero p{color:#c0cee0;max-width:650px;margin:0 auto 25px}
-.btn{display:inline-block;background:#168cf0;padding:11px 25px;border-radius:9px;font-weight:700}
-section{padding:65px 0}
-.title{text-align:center;font-size:27px;margin-bottom:12px}
-.sub{text-align:center;color:#9cacc3;margin-bottom:35px;font-size:14px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:#111f38;border:1px solid #283e60;border-radius:15px;padding:25px}
-.card h3{color:#55c8ff;margin-bottom:10px;font-size:17px}
-.card p{font-size:13px;color:#b7c6da}
-.about{background:#0e1a2d}
-.steps{max-width:750px;margin:auto}
-.step{border-right:3px solid #258eff;padding:10px 20px;margin:20px 0;background:#12213a;border-radius:8px}
-.step h3{color:#55c8ff;font-size:16px}
-.step p{color:#bdcbe0;font-size:13px}
-.faq{max-width:750px;margin:auto}
-.faq details{background:#12213a;border:1px solid #293e5e;border-radius:10px;padding:15px;margin:12px 0}
-.faq summary{cursor:pointer;font-weight:700}
-.faq p{color:#b7c6da;font-size:14px;margin-top:10px}
-.cta{text-align:center;background:radial-gradient(ellipse at center,#173d69,#080f20 75%)}
-.cta p{color:#b7c6da;margin:12px 0 25px}
-footer{text-align:center;background:#050a13;padding:30px;color:#91a4c0;font-size:12px}
-@media(max-width:700px){
-.grid{grid-template-columns:1fr}
-nav{flex-direction:column}
-.hero{padding:65px 15px}
-section{padding:50px 0}
+@font-face {
+  font-family: "Kalameh";
+  src: url("../fonts/Kalameh-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  --bg: #080d1c;
+  --surface: #111b30;
+  --blue: #328cff;
+  --light: #75b7ff;
+  --white: #f4f7ff;
+  --muted: #a1aec5;
+  --border: rgba(125,170,230,.16);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+  line-height: 2;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container {
+  width: min(1100px, 90%);
+  margin: auto;
+}
+
+header {
+  border-bottom: 1px solid var(--border);
+  background: #0a1020;
+  padding: 17px 0;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  direction: ltr;
+  font: 32px "Lalezar", sans-serif;
+}
+
+.logo span { color: var(--blue); }
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.nav-links a:hover { color: white; }
+
+.nav-btn {
+  background: var(--blue);
+  padding: 8px 17px;
+  border-radius: 9px;
+  font-size: 13px;
+}
+
+/* HERO */
+
+.hero {
+  padding: 90px 0;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 10% 30%,rgba(50,140,255,.17),transparent 45%),
+    linear-gradient(120deg,#080d1c,#101d35);
+}
+
+.tag {
+  display: inline-block;
+  padding: 5px 15px;
+  color: var(--light);
+  background: rgba(50,140,255,.1);
+  border: 1px solid rgba(50,140,255,.3);
+  border-radius: 30px;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font: 52px/1.5 "Lalezar", sans-serif;
+  margin-bottom: 15px;
+}
+
+.hero h1 span { color: var(--blue); }
+
+.hero p {
+  color: var(--muted);
+  max-width: 650px;
+  font-size: 15px;
+  line-height: 2.3;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 27px;
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.primary {
+  background: var(--blue);
+  color: white;
+}
+
+.secondary {
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.03);
+}
+
+/* SECTIONS */
+
+section.content {
+  padding: 75px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.section-title h2 {
+  font: 30px "Kalameh", sans-serif;
+  margin-bottom: 8px;
+}
+
+.section-title p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+}
+
+.card {
+  background: linear-gradient(145deg,#14213a,#0d1628);
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  padding: 25px;
+  transition: .25s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(50,140,255,.5);
+}
+
+.icon {
+  width: 45px;
+  height: 45px;
+  display: grid;
+  place-items: center;
+  background: rgba(50,140,255,.13);
+  color: var(--light);
+  border-radius: 12px;
+  font-size: 21px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  font: 21px "Kalameh", sans-serif;
+  margin-bottom: 9px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 2.2;
+}
+
+/* PROCESS */
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 15px;
+}
+
+.step {
+  border-right: 2px solid var(--blue);
+  background: #101a2d;
+  padding: 18px 20px;
+  border-radius: 12px;
+}
+
+.step-number {
+  color: var(--light);
+  font-size: 12px;
+  direction: ltr;
+  text-align: right;
+}
+
+.step h3 {
+  font: 20px "Kalameh", sans-serif;
+  margin: 7px 0;
+}
+
+.step p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* CTA */
+
+.cta {
+  background: linear-gradient(120deg,#102748,#10203a);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 45px 25px;
+  text-align: center;
+}
+
+.cta h2 {
+  font: 34px "Lalezar", sans-serif;
+  margin-bottom: 10px;
+}
+
+.cta p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 22px;
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 25px 0;
+  color: #8492aa;
+  font-size: 12px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media(max-width:750px) {
+  .nav-links { display: none; }
+  .hero { padding: 65px 0; }
+  .hero h1 { font-size: 40px; }
+  .cards, .steps { grid-template-columns: 1fr; }
+  section.content { padding: 55px 0; }
+  .section-title h2 { font-size: 26px; }
+  .cta h2 { font-size: 28px; }
+  .footer-inner { justify-content: center; text-align: center; }
 }
 </style>
 </head>
+
 <body>
 
 <header>
-<div class="container">
-<nav>
-<a class="logo" href="../index.html">ESLO ACADEMY</a>
-<a href="../index.html">بازگشت به صفحه اصلی ←</a>
-</nav>
-</div>
+  <div class="container nav">
+    <a href="../" class="logo">ESLO<span>.</span></a>
+
+    <nav class="nav-links">
+      <a href="../">خانه</a>
+      <a href="./">مشاوره انسانی</a>
+      <a href="../advisors/">مشاوران</a>
+      <a href="../#about">درباره ما</a>
+    </nav>
+
+    <a href="../register/" class="nav-btn">ثبت‌نام</a>
+  </div>
 </header>
 
-<div class="hero">
-<div class="container">
-<span class="tag">ESLO ACADEMY | علوم انسانی</span>
-<h1>مسیر کنکور انسانی را<br><span style="color:#55c8ff">هوشمندانه طی کن</span></h1>
-<p>با برنامه‌ریزی اصولی، شناخت بهتر درس‌ها و استفاده از روش‌های صحیح مطالعه، مسیر رسیدن به هدف تحصیلی خودت را روشن‌تر کن.</p>
-<a href="#services" class="btn">آشنایی با خدمات مشاوره</a>
-</div>
-</div>
+<main>
 
-<section id="services">
-<div class="container">
-<h2 class="title">خدمات مشاوره کنکور انسانی</h2>
-<p class="sub">امکانات آموزشی برای یک مسیر هدفمند</p>
-<div class="grid">
-<div class="card">
-<h3>برنامه‌ریزی درسی</h3>
-<p>تنظیم برنامه مطالعه متناسب با زمان و شرایط دانش‌آموز.</p>
-</div>
-<div class="card">
-<h3>تحلیل آزمون</h3>
-<p>بررسی عملکرد آزمون‌ها و شناسایی نقاط قابل بهبود.</p>
-</div>
-<div class="card">
-<h3>روش مطالعه</h3>
-<p>آشنایی با روش‌های مطالعه و مرور درس‌های انسانی.</p>
-</div>
-<div class="card">
-<h3>مدیریت زمان</h3>
-<p>یادگیری تقسیم زمان بین درس‌ها و فعالیت‌های روزانه.</p>
-</div>
-<div class="card">
-<h3>انتخاب رشته</h3>
-<p>آشنایی با رشته‌های دانشگاهی و مسیرهای تحصیلی.</p>
-</div>
-<div class="card">
-<h3>آمادگی کنکور</h3>
-<p>شناخت بهتر فرایند کنکور و برنامه‌ریزی برای آن.</p>
-</div>
-</div>
-</div>
+<section class="hero">
+  <div class="container">
+    <span class="tag">ESLO ACADEMY · HUMANITIES</span>
+
+    <h1>
+      مسیر موفقیت در رشته<br>
+      <span>علوم انسانی</span>
+    </h1>
+
+    <p>
+      برای رسیدن به هدف‌های تحصیلی، به برنامه‌ریزی،
+      شناخت توانایی‌ها و انتخاب مسیر مناسب نیاز داری.
+      آکادمی اسلو همراه تو در این مسیر است.
+    </p>
+
+    <div class="actions">
+      <a href="../register/" class="btn primary">شروع ثبت‌نام</a>
+      <a href="#services" class="btn secondary">آشنایی با خدمات</a>
+    </div>
+  </div>
 </section>
 
-<section class="about">
-<div class="container">
-<h2 class="title">مسیر پیشرفت تو در آکادمی اسلو</h2>
-<p class="sub">چهار قدم برای حرکت منظم‌تر</p>
-<div class="steps">
-<div class="step">
-<h3>۱. شناخت شرایط</h3>
-<p>بررسی وضعیت درسی، اهداف و زمان در دسترس.</p>
-</div>
-<div class="step">
-<h3>۲. طراحی برنامه</h3>
-<p>تدوین برنامه متناسب با شرایط تحصیلی.</p>
-</div>
-<div class="step">
-<h3>۳. اجرا و ارزیابی</h3>
-<p>پیگیری برنامه و بررسی روند پیشرفت.</p>
-</div>
-<div class="step">
-<h3>۴. اصلاح مسیر</h3>
-<p>بهبود برنامه بر اساس نتایج و تجربه‌ها.</p>
-</div>
-</div>
-</div>
+<section class="content" id="services">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>خدمات مشاوره تحصیلی</h2>
+      <p>برای مدیریت بهتر مسیر تحصیلی خودت</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="icon">◈</div>
+        <h3>برنامه‌ریزی درسی</h3>
+        <p>
+          تنظیم برنامه مطالعاتی متناسب با شرایط،
+          اهداف و زمان در دسترس دانش‌آموز.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">✦</div>
+        <h3>آمادگی کنکور</h3>
+        <p>
+          آشنایی با مسیر آمادگی کنکور انسانی،
+          مرور مطالب و مدیریت زمان مطالعه.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">◎</div>
+        <h3>ارزیابی پیشرفت</h3>
+        <p>
+          بررسی روند مطالعه و شناسایی نقاط قوت
+          و بخش‌هایی که به توجه بیشتری نیاز دارند.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">⌘</div>
+        <h3>روش مطالعه</h3>
+        <p>
+          آشنایی با روش‌های مطالعه و مرور
+          درس‌های مختلف رشته علوم انسانی.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">↗</div>
+        <h3>هدف‌گذاری تحصیلی</h3>
+        <p>
+          شناخت هدف‌ها و تبدیل آن‌ها به
+          قدم‌های مشخص و قابل پیگیری.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">◇</div>
+        <h3>انتخاب مسیر آینده</h3>
+        <p>
+          آشنایی با رشته‌های دانشگاهی و
+          بررسی مسیرهای ادامه تحصیل.
+        </p>
+      </div>
+
+    </div>
+  </div>
 </section>
 
-<section>
-<div class="container">
-<h2 class="title">سؤالات متداول</h2>
-<p class="sub">پاسخ به چند سؤال درباره مشاوره</p>
-<div class="faq">
-<details>
-<summary>برنامه‌ریزی درسی چگونه انجام می‌شود؟</summary>
-<p>با توجه به شرایط تحصیلی، زمان در دسترس و اهداف دانش‌آموز برنامه تنظیم می‌شود.</p>
-</details>
-<details>
-<summary>آیا دانش‌آموزان پایه دهم و یازدهم هم می‌توانند استفاده کنند؟</summary>
-<p>بله، محتوای آموزشی و برنامه‌ریزی می‌تواند برای پایه‌های مختلف انسانی تنظیم شود.</p>
-</details>
-<details>
-<summary>چطور می‌توانم با آکادمی ارتباط بگیرم؟</summary>
-<p>به‌زودی راه‌های ارتباطی و فرم درخواست مشاوره در همین صفحه اضافه می‌شود.</p>
-</details>
-</div>
-</div>
+<section class="content">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>مسیر شروع همکاری</h2>
+      <p>از ثبت‌نام تا شروع مسیر برنامه‌ریزی</p>
+    </div>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-number">STEP 01</div>
+        <h3>ثبت اطلاعات اولیه</h3>
+        <p>فرم ثبت‌نام را تکمیل کن.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">STEP 02</div>
+        <h3>بررسی نیازها</h3>
+        <p>شرایط و هدف‌های تحصیلی خود را مشخص کن.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">STEP 03</div>
+        <h3>شروع مسیر</h3>
+        <p>پس از هماهنگی، مسیر مناسب خود را آغاز کن.</p>
+      </div>
+
+    </div>
+  </div>
 </section>
 
-<section class="cta">
-<div class="container">
-<h2>قدم بعدی برای آینده‌ات را بردار</h2>
-<p>آکادمی اسلو؛ همراه مسیر یادگیری و پیشرفت تو</p>
-<a href="../index.html" class="btn">بازگشت به آکادمی اسلو</a>
-</div>
+<section class="content">
+  <div class="container">
+    <div class="cta">
+      <h2>برای آینده‌ات قدم بردار</h2>
+      <p>اولین قدم برای ساختن یک مسیر تحصیلی هدفمند را بردار.</p>
+      <a href="../register/" class="btn primary">ثبت‌نام در آکادمی اسلو</a>
+    </div>
+  </div>
 </section>
+
+</main>
 
 <footer>
-ESLO ACADEMY
-<br>
-© تمامی حقوق متعلق به آکادمی اسلو است.
+  <div class="container footer-inner">
+    <span>ESLO ACADEMY</span>
+    <span>تمام حقوق متعلق به آکادمی اسلو است.</span>
+    <span>© 2026 ESLO</span>
+  </div>
 </footer>
 
 </body>
