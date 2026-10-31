@@ -4,364 +4,608 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090B0E">
 <title>آکادمی اسلو | ESLO ACADEMY</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Estedad:wght@300;400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-@font-face {
-  font-family: "Kalameh";
-  src: url("fonts/Kalameh-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+@font-face{
+  font-family:"Kalameh";
+  src:url("fonts/Kalameh-Bold.woff2") format("woff2");
+  font-weight:700;
+  font-display:swap;
 }
 
-:root {
-  --bg: #090B0E;
-  --surface: #17191D;
-  --surface2: #202226;
-  --yellow: #FFE500;
-  --gold: #D6A928;
-  --white: #F5F5F2;
-  --gray: #A5A5A5;
-  --border: #303034;
+:root{
+  --bg:#090B0E;
+  --surface:rgba(255,255,255,.045);
+  --surface2:rgba(255,255,255,.075);
+  --yellow:#FFE500;
+  --gold:#D6A928;
+  --white:#F5F5F2;
+  --gray:#A5A5A5;
+  --border:rgba(255,255,255,.12);
+  --glass:blur(18px);
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-html {
-  scroll-behavior: smooth;
+html{scroll-behavior:smooth}
+
+body{
+  background:var(--bg);
+  color:var(--white);
+  font-family:"IBM Plex Sans Arabic",sans-serif;
+  line-height:2;
+  overflow-x:hidden;
+  position:relative;
 }
 
-body {
-  background: var(--bg);
-  color: var(--white);
-  font-family: "IBM Plex Sans Arabic", sans-serif;
-  line-height: 2;
+body,button,input,textarea,select{
+  font-family:"IBM Plex Sans Arabic",sans-serif;
 }
 
-body, button, input, textarea, select {
-  font-family: "IBM Plex Sans Arabic", sans-serif;
+h1,h2,h3,h4{
+  font-family:"Lalezar",sans-serif;
+  font-weight:400;
+  line-height:1.5;
 }
 
-h1, h2, h3, h4 {
-  font-family: "Lalezar", sans-serif;
-  font-weight: 400;
-  line-height: 1.5;
+a,button,nav{
+  font-family:"Estedad",sans-serif;
 }
 
-a, button, nav {
-  font-family: "Estedad", sans-serif;
+p,li,.description{
+  font-family:"Vazirmatn",sans-serif;
 }
 
-p, li, .description {
-  font-family: "Vazirmatn", sans-serif;
+.english,.number,.tag,.logo-en{
+  font-family:"Readex Pro",sans-serif;
 }
 
-.english, .number, .tag, .logo-en {
-  font-family: "Readex Pro", sans-serif;
+.special-title{
+  font-family:"Kalameh","Lalezar",sans-serif;
+  font-weight:700;
 }
 
-.special-title {
-  font-family: "Kalameh", "Lalezar", sans-serif;
-  font-weight: 700;
+a{
+  color:inherit;
+  text-decoration:none;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.container{
+  width:min(1120px,90%);
+  margin:auto;
 }
 
-.container {
-  width: min(1120px, 90%);
-  margin: auto;
+/* CUSTOM TEXTURE */
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,229,0,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,229,0,.025) 1px,transparent 1px),
+    radial-gradient(circle at 15% 20%,rgba(214,169,40,.13),transparent 25%),
+    radial-gradient(circle at 85% 65%,rgba(255,229,0,.07),transparent 27%);
+  background-size:48px 48px,48px 48px,auto,auto;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  opacity:.12;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+}
+
+/* GLASS */
+
+.glass{
+  background:rgba(255,255,255,.045);
+  border:1px solid var(--border);
+  backdrop-filter:var(--glass);
+  -webkit-backdrop-filter:var(--glass);
+  box-shadow:0 15px 45px rgba(0,0,0,.2);
 }
 
 /* HEADER */
 
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(9,11,14,.96);
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(15px);
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(9,11,14,.78);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
 }
 
-.nav {
-  min-height: 82px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
+.nav{
+  min-height:82px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: var(--yellow);
-  font-family: "Lalezar", sans-serif;
-  font-size: 25px;
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:var(--yellow);
+  font-family:"Lalezar",sans-serif;
+  font-size:25px;
+  white-space:nowrap;
 }
 
-.logo img {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
+.logo img{
+  width:48px;
+  height:48px;
+  object-fit:contain;
 }
 
-nav {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 23px;
-  font-size: 13px;
+nav{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:9px;
+  font-size:12px;
 }
 
-nav a {
-  color: #ddd;
-  transition: .2s;
+nav a{
+  color:#ddd;
+  padding:8px 13px;
+  border:1px solid transparent;
+  border-radius:12px;
+  transition:.25s;
 }
 
-nav a:hover {
-  color: var(--yellow);
+nav a:hover{
+  color:var(--yellow);
+  border-color:rgba(255,229,0,.25);
+  background:rgba(255,229,0,.07);
+}
+
+nav a.nav-highlight{
+  color:#111;
+  background:var(--yellow);
+  font-weight:800;
+  border-color:var(--yellow);
+}
+
+nav a.nav-highlight:hover{
+  background:var(--gold);
+  color:#000;
 }
 
 /* BUTTONS */
 
-.btn {
-  display: inline-block;
-  background: var(--yellow);
-  color: #090909;
-  padding: 11px 25px;
-  border-radius: 9px;
-  font-family: "Estedad", sans-serif;
-  font-weight: 800;
-  transition: .25s;
+.btn{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  background:var(--yellow);
+  color:#090909;
+  padding:12px 25px;
+  border:1px solid var(--yellow);
+  border-radius:13px;
+  font-weight:800;
+  transition:.25s;
 }
 
-.btn:hover {
-  background: var(--gold);
-  transform: translateY(-3px);
+.btn:hover{
+  background:var(--gold);
+  border-color:var(--gold);
+  transform:translateY(-3px);
+  box-shadow:0 10px 30px rgba(255,229,0,.13);
+}
+
+.btn-glass{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  padding:11px 20px;
+  border-radius:13px;
+  border:1px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.06);
+  color:#fff;
+  backdrop-filter:blur(15px);
+  transition:.25s;
+}
+
+.btn-glass:hover{
+  background:rgba(255,229,0,.1);
+  border-color:var(--yellow);
+  color:var(--yellow);
+  transform:translateY(-3px);
 }
 
 /* HERO */
 
-.hero {
-  padding: 105px 0 95px;
-  background:
-    radial-gradient(ellipse at 15% 30%, rgba(214,169,40,.14), transparent 40%),
-    radial-gradient(ellipse at 85% 80%, rgba(255,229,0,.08), transparent 35%);
+.hero{
+  position:relative;
+  padding:110px 0 100px;
+  overflow:hidden;
 }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.2fr .8fr;
-  align-items: center;
-  gap: 50px;
+.hero::before{
+  content:"";
+  position:absolute;
+  width:400px;
+  height:400px;
+  border-radius:50%;
+  background:rgba(255,229,0,.08);
+  filter:blur(100px);
+  top:0;
+  right:-180px;
+  pointer-events:none;
 }
 
-.tag {
-  color: var(--yellow);
-  font-size: 12px;
-  letter-spacing: 2px;
+.hero::after{
+  content:"ESLO";
+  position:absolute;
+  left:-30px;
+  bottom:-100px;
+  font-family:"Readex Pro",sans-serif;
+  font-size:clamp(120px,25vw,280px);
+  font-weight:800;
+  color:rgba(255,255,255,.018);
+  pointer-events:none;
 }
 
-h1 {
-  font-size: clamp(43px, 7vw, 76px);
-  margin: 18px 0;
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  align-items:center;
+  gap:50px;
+  position:relative;
+  z-index:1;
 }
 
-h1 span {
-  color: var(--yellow);
-  font-family: "Kalameh", "Lalezar", sans-serif;
+.tag{
+  display:inline-block;
+  color:var(--yellow);
+  font-size:12px;
+  letter-spacing:2px;
+  padding:7px 14px;
+  border:1px solid rgba(255,229,0,.25);
+  background:rgba(255,229,0,.055);
+  border-radius:30px;
 }
 
-.hero p {
-  color: var(--gray);
-  max-width: 580px;
-  margin-bottom: 28px;
+h1{
+  font-size:clamp(43px,7vw,76px);
+  margin:20px 0;
 }
 
-.hero-card {
-  background: linear-gradient(145deg, #222222, #111214);
-  border: 1px solid #594817;
-  border-radius: 24px;
-  padding: 38px;
-  text-align: center;
-  box-shadow: 0 20px 70px #0008;
+h1 span{
+  color:var(--yellow);
+  font-family:"Kalameh","Lalezar",sans-serif;
 }
 
-.hero-card strong {
-  display: block;
-  font-family: "Readex Pro", sans-serif;
-  font-size: 56px;
-  color: var(--yellow);
+.hero p{
+  color:var(--gray);
+  max-width:580px;
+  margin-bottom:28px;
 }
 
-.hero-card h2 {
-  font-size: 30px;
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
 }
 
-.hero-card p {
-  margin: 10px auto 0;
-  font-size: 14px;
+.hero-card{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025));
+  border:1px solid rgba(255,229,0,.3);
+  border-radius:28px;
+  padding:42px 30px;
+  text-align:center;
+  backdrop-filter:blur(22px);
+  box-shadow:0 25px 80px #0008,inset 0 1px 0 #ffffff1c;
+}
+
+.hero-card::before{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  background:rgba(255,229,0,.12);
+  filter:blur(65px);
+  top:-70px;
+  right:-50px;
+}
+
+.hero-card strong{
+  position:relative;
+  display:block;
+  font-family:"Readex Pro",sans-serif;
+  font-size:clamp(48px,8vw,68px);
+  color:var(--yellow);
+  line-height:1.5;
+}
+
+.hero-card h2{
+  position:relative;
+  font-size:32px;
+}
+
+.hero-card p{
+  position:relative;
+  margin:10px auto 0;
+  font-size:14px;
+}
+
+.hero-card-line{
+  width:55px;
+  height:3px;
+  border-radius:10px;
+  background:var(--yellow);
+  margin:18px auto 0;
 }
 
 /* SECTIONS */
 
-section {
-  padding: 78px 0;
+section{
+  padding:78px 0;
 }
 
-.section-title {
-  text-align: center;
-  margin-bottom: 40px;
+.section-title{
+  text-align:center;
+  margin-bottom:40px;
 }
 
-.section-title h2 {
-  font-size: 36px;
+.section-title h2{
+  font-size:36px;
 }
 
-.section-title p {
-  color: var(--gray);
-  font-size: 14px;
+.section-title p{
+  color:var(--gray);
+  font-size:14px;
 }
 
 /* CARDS */
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
 }
 
-.card {
-  display: block;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 17px;
-  padding: 28px;
-  transition: .25s;
+.card{
+  position:relative;
+  display:block;
+  overflow:hidden;
+  background:rgba(255,255,255,.045);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:28px;
+  backdrop-filter:blur(16px);
+  transition:.3s;
 }
 
-.card:hover {
-  border-color: var(--gold);
-  transform: translateY(-5px);
-  background: var(--surface2);
+.card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  right:0;
+  width:75px;
+  height:2px;
+  background:var(--yellow);
+  opacity:.7;
 }
 
-.number {
-  color: var(--yellow);
-  font-size: 27px;
-  font-weight: 700;
+.card:hover{
+  border-color:rgba(255,229,0,.5);
+  transform:translateY(-7px);
+  background:rgba(255,255,255,.075);
+  box-shadow:0 18px 45px rgba(0,0,0,.3);
 }
 
-.card h3 {
-  font-family: "Kalameh", "Lalezar", sans-serif;
-  font-size: 25px;
-  margin: 8px 0;
+.number{
+  color:var(--yellow);
+  font-size:27px;
+  font-weight:700;
 }
 
-.card p {
-  color: var(--gray);
-  font-size: 13px;
+.card h3{
+  font-family:"Kalameh","Lalezar",sans-serif;
+  font-size:25px;
+  margin:8px 0;
+}
+
+.card p{
+  color:var(--gray);
+  font-size:13px;
+}
+
+.card-link{
+  display:inline-block;
+  margin-top:17px;
+  color:var(--yellow);
+  font-size:12px;
+  font-weight:700;
+}
+
+/* SERVICES */
+
+.services{
+  background:rgba(255,255,255,.018);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+
+.service-card{
+  min-height:215px;
+}
+
+.service-card .number{
+  display:inline-flex;
+  width:48px;
+  height:48px;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  background:rgba(255,229,0,.08);
+  border:1px solid rgba(255,229,0,.2);
 }
 
 /* WHY */
 
-.why {
-  background: #111316;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+.why{
+  position:relative;
 }
 
-.why-content {
-  max-width: 760px;
-  margin: auto;
-  text-align: center;
+.why-content{
+  max-width:760px;
+  margin:auto;
+  text-align:center;
+  padding:42px 30px;
+  border-radius:24px;
 }
 
-.why-content h2 {
-  font-size: 38px;
-  margin-bottom: 15px;
+.why-content h2{
+  font-size:38px;
+  margin-bottom:15px;
 }
 
-.why-content p {
-  color: var(--gray);
+.why-content p{
+  color:var(--gray);
 }
 
 /* CTA */
 
-.cta {
-  text-align: center;
-  background: linear-gradient(120deg, #201b0b, #111316);
-  border: 1px solid #594817;
-  border-radius: 22px;
-  padding: 52px 20px;
+.cta{
+  text-align:center;
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(255,229,0,.13),transparent 65%),
+    rgba(255,255,255,.035);
+  border:1px solid rgba(255,229,0,.27);
+  border-radius:25px;
+  padding:55px 20px;
+  backdrop-filter:blur(18px);
 }
 
-.cta h2 {
-  font-size: 35px;
-  margin-bottom: 12px;
+.cta h2{
+  font-size:35px;
+  margin-bottom:12px;
 }
 
-.cta p {
-  color: var(--gray);
-  margin-bottom: 24px;
+.cta p{
+  color:var(--gray);
+  margin-bottom:24px;
 }
 
 /* FOOTER */
 
-footer {
-  border-top: 1px solid var(--border);
-  padding: 32px 0;
-  text-align: center;
-  color: var(--gray);
-  font-size: 12px;
+footer{
+  border-top:1px solid var(--border);
+  padding:32px 0;
+  text-align:center;
+  color:var(--gray);
+  font-size:12px;
+  background:rgba(0,0,0,.2);
 }
 
-footer strong {
-  color: var(--yellow);
-  font-family: "Readex Pro", sans-serif;
+footer strong{
+  color:var(--yellow);
+  font-family:"Readex Pro",sans-serif;
+}
+
+.footer-links{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:18px;
+  margin:13px 0;
+}
+
+.footer-links a{
+  color:#aaa;
+  transition:.2s;
+}
+
+.footer-links a:hover{
+  color:var(--yellow);
 }
 
 /* RESPONSIVE */
 
-@media(max-width: 760px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
+@media(max-width:900px){
+  .nav{
+    padding:14px 0;
+    flex-direction:column;
+    gap:12px;
   }
 
-  .cards {
-    grid-template-columns: 1fr;
+  nav{
+    justify-content:center;
   }
 
-  .nav {
-    padding: 13px 0;
-    flex-direction: column;
+  .hero-grid{
+    gap:30px;
+  }
+}
+
+@media(max-width:760px){
+  .hero-grid{
+    grid-template-columns:1fr;
   }
 
-  nav {
-    justify-content: center;
-    gap: 12px;
+  .cards{
+    grid-template-columns:1fr;
   }
 
-  .hero {
-    padding: 65px 0;
+  .hero{
+    padding:65px 0;
   }
 
-  h1 {
-    font-size: 48px;
+  h1{
+    font-size:48px;
+  }
+
+  .hero-card{
+    padding:32px 20px;
+  }
+
+  section{
+    padding:60px 0;
+  }
+
+  .section-title h2{
+    font-size:31px;
+  }
+
+  nav{
+    gap:5px;
+  }
+
+  nav a{
+    padding:7px 10px;
+    font-size:11px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    scroll-behavior:auto!important;
+    transition:none!important;
   }
 }
 </style>
@@ -381,9 +625,10 @@ footer strong {
     <nav>
       <a href="./">خانه</a>
       <a href="ensani-counseling/">مشاوره</a>
+      <a href="rank-estimate/">تخمین تراز</a>
       <a href="advisors/">مشاوران</a>
       <a href="about/">درباره ما</a>
-      <a href="register/">ثبت‌نام</a>
+      <a class="nav-highlight" href="register/">ثبت‌نام</a>
     </nav>
 
   </div>
@@ -407,13 +652,17 @@ footer strong {
         برنامه‌ریزی کن، یاد بگیر و با انگیزه پیش برو.
       </p>
 
-      <a class="btn" href="register/">شروع ثبت‌نام</a>
+      <div class="hero-buttons">
+        <a class="btn" href="register/">شروع ثبت‌نام</a>
+        <a class="btn-glass" href="rank-estimate/">تخمین تراز کنکور</a>
+      </div>
     </div>
 
     <div class="hero-card">
       <strong>ESLO.</strong>
       <h2 class="special-title">آکادمی اسلو</h2>
       <p>برنامه‌ریزی، آموزش و همراهی در مسیر موفقیت</p>
+      <div class="hero-card-line"></div>
     </div>
 
   </div>
@@ -451,32 +700,49 @@ footer strong {
   </div>
 </section>
 
-<section>
+<section class="services">
   <div class="container">
 
     <div class="section-title">
       <h2>خدمات آکادمی اسلو</h2>
-      <p>بخش‌های مختلف آکادمی را بشناس.</p>
+      <p>تمام امکانات آکادمی در دسترس توست.</p>
     </div>
 
     <div class="cards">
 
-      <a class="card" href="ensani-counseling/">
+      <a class="card service-card" href="ensani-counseling/">
         <div class="number">01</div>
         <h3>مشاوره انسانی</h3>
         <p>برنامه‌ریزی و همراهی تحصیلی ویژه دانش‌آموزان انسانی.</p>
+        <span class="card-link">مشاهده صفحه ←</span>
       </a>
 
-      <a class="card" href="advisors/">
+      <a class="card service-card" href="rank-estimate/">
         <div class="number">02</div>
+        <h3>تخمین تراز کنکور</h3>
+        <p>درصدها و نمراتت را وارد کن و شاخص آزمایشی عملکردت را مشاهده کن.</p>
+        <span class="card-link">ورود به تخمین تراز ←</span>
+      </a>
+
+      <a class="card service-card" href="advisors/">
+        <div class="number">03</div>
         <h3>تیم مشاوران</h3>
         <p>آشنایی با مشاوران و اعضای مجموعه آکادمی اسلو.</p>
+        <span class="card-link">مشاهده مشاوران ←</span>
       </a>
 
-      <a class="card" href="about/">
-        <div class="number">03</div>
+      <a class="card service-card" href="about/">
+        <div class="number">04</div>
         <h3>درباره آکادمی</h3>
         <p>با اهداف، ارزش‌ها و مسیر فعالیت مجموعه آشنا شو.</p>
+        <span class="card-link">درباره ما ←</span>
+      </a>
+
+      <a class="card service-card" href="register/">
+        <div class="number">05</div>
+        <h3>ثبت‌نام در آکادمی</h3>
+        <p>برای شروع مسیر آموزشی و دریافت خدمات، فرم ثبت‌نام را تکمیل کن.</p>
+        <span class="card-link">شروع ثبت‌نام ←</span>
       </a>
 
     </div>
@@ -484,14 +750,16 @@ footer strong {
 </section>
 
 <section class="why">
-  <div class="container why-content">
-    <h2>چرا آکادمی اسلو؟</h2>
+  <div class="container">
+    <div class="why-content glass">
+      <h2>چرا آکادمی اسلو؟</h2>
 
-    <p>
-      ما باور داریم موفقیت فقط با تلاش به دست نمی‌آید؛
-      داشتن هدف روشن، برنامه مناسب و استمرار نیز اهمیت زیادی دارد.
-      آکادمی اسلو تلاش می‌کند در این مسیر همراه دانش‌آموزان باشد.
-    </p>
+      <p>
+        ما باور داریم موفقیت فقط با تلاش به دست نمی‌آید؛
+        داشتن هدف روشن، برنامه مناسب و استمرار نیز اهمیت زیادی دارد.
+        آکادمی اسلو تلاش می‌کند در این مسیر همراه دانش‌آموزان باشد.
+      </p>
+    </div>
   </div>
 </section>
 
@@ -502,6 +770,7 @@ footer strong {
       <h2>آماده شروعی متفاوت هستی؟</h2>
       <p>قدم اول را بردار و مسیرت را با آکادمی اسلو آغاز کن.</p>
       <a class="btn" href="register/">ورود به صفحه ثبت‌نام</a>
+      <a class="btn-glass" href="rank-estimate/">تخمین تراز</a>
     </div>
 
   </div>
@@ -512,6 +781,15 @@ footer strong {
 <footer>
   <div class="container">
     <strong>ESLO ACADEMY</strong>
+
+    <div class="footer-links">
+      <a href="./">خانه</a>
+      <a href="register/">ثبت‌نام</a>
+      <a href="rank-estimate/">تخمین تراز</a>
+      <a href="advisors/">مشاوران</a>
+      <a href="about/">درباره ما</a>
+    </div>
+
     <p>تمام حقوق برای آکادمی اسلو محفوظ است.</p>
   </div>
 </footer>
