@@ -3,173 +3,399 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>تخمین تراز | آکادمی اسلو</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
-:root{--red:#ff304f;--bg:#09090d;--panel:#17151b;--muted:#aaa3ad}
+:root{
+  --bg:#09090e;
+  --red:#ff3155;
+  --red2:#a20e2d;
+  --glass:rgba(255,255,255,.055);
+  --border:rgba(255,255,255,.12);
+  --muted:#aaaab7;
+}
 *{box-sizing:border-box}
-body{margin:0;background:radial-gradient(circle at top,#35101a 0,#09090d 48%);color:#fff;font-family:Vazirmatn,sans-serif;padding:22px 14px 50px}
-.container{max-width:850px;margin:auto}
-header{text-align:center;padding:25px 10px 30px}
-.logo{font-size:13px;letter-spacing:3px;color:var(--red);font-weight:900}
-h1{font-size:30px;margin:10px 0 5px}
-.sub{color:var(--muted);font-size:14px}
-.panel{background:rgba(23,21,27,.96);border:1px solid #38212a;border-radius:18px;padding:20px;margin:15px 0;box-shadow:0 12px 35px #0005}
-h2{font-size:18px;margin:0 0 16px;color:#ff526a}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
-.field label{display:block;font-size:13px;color:#d7cfd5;margin-bottom:6px}
-input,select{width:100%;background:#0d0c11;border:1px solid #40333b;border-radius:10px;padding:12px;color:white;font:inherit;outline:none}
-input:focus,select:focus{border-color:var(--red)}
-small{color:var(--muted);font-size:11px}
-button{width:100%;border:0;border-radius:12px;padding:15px;background:linear-gradient(110deg,#a90e2d,#ff304f);color:white;font:800 16px Vazirmatn;cursor:pointer;margin-top:10px}
-.result{display:none}
-.score{font-size:38px;font-weight:900;color:#ff526a;text-align:center;margin:8px}
-.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.stat{background:#0d0c11;border:1px solid #35252c;border-radius:12px;padding:14px;text-align:center}
-.stat span{display:block;color:var(--muted);font-size:12px}
-.stat strong{display:block;font-size:20px;margin-top:5px}
-.note{font-size:12px;color:#c5b9c0;line-height:2.1;background:#24151b;padding:13px;border-radius:10px;margin-top:15px}
-.footer{text-align:center;color:#766d75;font-size:12px;margin-top:25px}
-@media(max-width:520px){.grid{grid-template-columns:1fr 1fr}h1{font-size:25px}.panel{padding:15px}}
+body{
+  margin:0;
+  font-family:'Vazirmatn',sans-serif;
+  color:#fff;
+  background:
+    radial-gradient(ellipse at 10% 5%,rgba(162,14,45,.27),transparent 40%),
+    radial-gradient(ellipse at 90% 45%,rgba(255,49,85,.12),transparent 40%),
+    var(--bg);
+  min-height:100vh;
+}
+.container{width:min(900px,92%);margin:auto;padding:35px 0 60px}
+header{text-align:center;margin-bottom:30px}
+.logo{
+  display:inline-block;
+  padding:8px 18px;
+  border:1px solid rgba(255,49,85,.4);
+  border-radius:30px;
+  background:rgba(255,49,85,.08);
+  color:#ff7189;
+  font-size:12px;
+  letter-spacing:2px;
+}
+h1{font-size:clamp(25px,5vw,38px);margin:17px 0 8px;font-weight:900}
+h1 span{color:var(--red)}
+.subtitle{color:var(--muted);font-size:14px}
+.glass{
+  background:var(--glass);
+  border:1px solid var(--border);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-radius:22px;
+  box-shadow:0 12px 40px rgba(0,0,0,.2);
+}
+.panel{padding:22px;margin-bottom:20px}
+.section-title{
+  display:flex;align-items:center;gap:10px;
+  font-size:18px;font-weight:800;margin:0 0 18px
+}
+.section-title:before{
+  content:"";width:4px;height:23px;border-radius:5px;
+  background:var(--red);display:inline-block
+}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field label{font-size:13px;color:#d6d6df}
+input,select{
+  width:100%;height:48px;padding:0 13px;
+  border-radius:13px;border:1px solid var(--border);
+  color:#fff;background:rgba(255,255,255,.065);
+  outline:none;font-family:inherit;font-size:14px;
+  transition:.2s;
+}
+input:focus,select:focus{
+  border-color:var(--red);
+  box-shadow:0 0 0 3px rgba(255,49,85,.12)
+}
+input::placeholder{color:#777}
+select option{background:#17131a;color:#fff}
+.year-options{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.year-btn{
+  min-height:65px;border:1px solid var(--border);
+  border-radius:16px;background:rgba(255,255,255,.045);
+  color:#ddd;font-family:inherit;font-size:17px;
+  font-weight:800;cursor:pointer;transition:.25s;
+}
+.year-btn small{display:block;font-size:10px;font-weight:400;color:#aaa;margin-top:3px}
+.year-btn.active{
+  color:#fff;border-color:var(--red);
+  background:linear-gradient(135deg,rgba(255,49,85,.25),rgba(162,14,45,.12));
+  box-shadow:0 0 22px rgba(255,49,85,.13),inset 0 0 15px rgba(255,49,85,.08)
+}
+.subject-card{
+  padding:13px;border:1px solid var(--border);
+  border-radius:15px;background:rgba(255,255,255,.035);
+}
+.subject-card label{display:block;font-size:13px;margin-bottom:9px;color:#e7e7ed}
+.subject-card input{height:43px}
+.subject-card .coef{font-size:10px;color:#ff8296;margin-top:6px}
+.note{
+  padding:12px 14px;border-radius:13px;
+  background:rgba(255,49,85,.075);
+  border:1px solid rgba(255,49,85,.18);
+  color:#e9b9c3;font-size:12px;line-height:2;margin-top:15px
+}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.main-btn,.reset-btn{
+  border:1px solid var(--border);border-radius:15px;
+  min-height:52px;font-family:inherit;font-weight:800;
+  font-size:15px;cursor:pointer;transition:.2s
+}
+.main-btn{
+  background:linear-gradient(120deg,#ff3155,#a20e2d);
+  color:white;box-shadow:0 8px 25px rgba(255,49,85,.2)
+}
+.reset-btn{background:rgba(255,255,255,.06);color:#ddd}
+.main-btn:active,.reset-btn:active,.year-btn:active{transform:scale(.98)}
+.result{display:none;margin-top:20px}
+.result.show{display:block;animation:appear .4s ease}
+@keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.result-main{text-align:center;padding:25px}
+.result-main .caption{color:#bbb;font-size:13px}
+.big-score{font-size:clamp(38px,9vw,58px);font-weight:900;color:#ff4968;margin:8px 0}
+.result-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:15px}
+.result-item{padding:17px;text-align:center}
+.result-item span{display:block;font-size:12px;color:#aaa}
+.result-item strong{display:block;font-size:23px;margin-top:7px}
+.warning{font-size:12px;color:#c8b5ba;line-height:2;margin-top:15px}
+footer{text-align:center;color:#777;font-size:11px;margin-top:30px}
+@media(max-width:600px){
+ .container{padding-top:25px}
+ .panel{padding:16px}
+ .grid{gap:10px}
+ .subject-card{padding:10px}
+ .subject-card label{font-size:12px}
+ .actions{grid-template-columns:1fr}
+}
 </style>
 </head>
+
 <body>
 <div class="container">
+
 <header>
-<div class="logo">ESLO ACADEMY</div>
-<h1>تخمین تراز کنکور انسانی</h1>
-<div class="sub">محاسبه آزمایشی تراز آزمون و سوابق تحصیلی</div>
+  <div class="logo">ESLO ACADEMY</div>
+  <h1>تخمین <span>تراز کنکور</span></h1>
+  <div class="subtitle">ابزار آزمایشی تحلیل عملکرد داوطلبان علوم انسانی</div>
 </header>
 
-<div class="panel">
-<h2>۱. مشخصات داوطلب</h2>
-<div class="grid">
-<div class="field"><label>سال کنکور</label>
-<select id="year"><option value="1406">۱۴۰۶</option><option value="1405">۱۴۰۵</option></select></div>
-<div class="field"><label>سهمیه منطقه</label>
-<select id="region"><option value="1">منطقه ۱</option><option value="2">منطقه ۲</option><option value="3">منطقه ۳</option></select></div>
-<div class="field"><label>سهمیه</label>
-<select id="quota"><option>منطقه</option><option>ایثارگران ۵ درصد</option><option>ایثارگران ۲۵ درصد</option></select></div>
-<div class="field"><label>جنسیت</label>
-<select id="gender"><option>مرد</option><option>زن</option></select></div>
-</div>
-</div>
+<section class="glass panel">
+  <h2 class="section-title">انتخاب سال کنکور</h2>
+  <div class="year-options">
+    <button class="year-btn active" type="button" data-year="1405" onclick="chooseYear(1405)">
+      کنکور ۱۴۰۵
+      <small>ورودی سال ۱۴۰۵</small>
+    </button>
+    <button class="year-btn" type="button" data-year="1406" onclick="chooseYear(1406)">
+      کنکور ۱۴۰۶
+      <small>ورودی سال ۱۴۰۶</small>
+    </button>
+  </div>
+  <input type="hidden" id="year" value="1405">
+</section>
 
-<div class="panel">
-<h2>۲. درصد دروس اختصاصی کنکور</h2>
-<div class="grid" id="examFields"></div>
-<small>درصد هر درس را بین ۰ تا ۱۰۰ وارد کن. برای درصد منفی، مقدار منفی را وارد کن.</small>
-</div>
+<section class="glass panel">
+  <h2 class="section-title">اطلاعات داوطلب</h2>
+  <div class="grid">
+    <div class="field">
+      <label for="region">منطقه</label>
+      <select id="region">
+        <option value="1">منطقه ۱</option>
+        <option value="2">منطقه ۲</option>
+        <option value="3" selected>منطقه ۳</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="quota">سهمیه</label>
+      <select id="quota">
+        <option value="normal">منطقه‌ای / آزاد</option>
+        <option value="25">ایثارگران ۲۵ درصد</option>
+        <option value="5">ایثارگران ۵ درصد</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="gender">جنسیت</label>
+      <select id="gender">
+        <option value="male">مرد</option>
+        <option value="female">زن</option>
+      </select>
+    </div>
+  </div>
+</section>
 
-<div class="panel">
-<h2>۳. نمرات امتحانات نهایی پایه یازدهم</h2>
-<div class="grid" id="grade11"></div>
-</div>
+<section class="glass panel">
+  <h2 class="section-title">درصد دروس اختصاصی کنکور</h2>
+  <div class="grid" id="examSubjects"></div>
+  <div class="note">
+    درصد هر درس را بین منفی ۳۳ تا ۱۰۰ وارد کن. اگر در درسی پاسخ نداده‌ای، عدد صفر را قرار بده.
+  </div>
+</section>
 
-<div class="panel">
-<h2>۴. نمرات امتحانات نهایی پایه دوازدهم</h2>
-<div class="grid" id="grade12"></div>
-</div>
+<section class="glass panel">
+  <h2 class="section-title">نمرات نهایی پایه یازدهم</h2>
+  <div class="note" style="margin-top:0;margin-bottom:15px">
+    فقط شش درس نهایی پایه یازدهم رشته علوم انسانی در این بخش قرار گرفته‌اند.
+  </div>
+  <div class="grid" id="grade11"></div>
+</section>
 
-<button onclick="calculate()">محاسبه تراز تخمینی</button>
+<section class="glass panel">
+  <h2 class="section-title">نمرات نهایی پایه دوازدهم</h2>
+  <div class="grid" id="grade12"></div>
+  <div class="note">
+    نمرات را از ۰ تا ۲۰ وارد کن. برای درس‌هایی که سابقه تحصیلی نداری، فیلد را خالی بگذار.
+  </div>
+</section>
 
-<div class="panel result" id="result">
-<h2>نتیجه تخمین آکادمی اسلو</h2>
-<div class="sub" style="text-align:center">شاخص تخمینی کل</div>
-<div class="score" id="totalScore">—</div>
-<div class="stats">
-<div class="stat"><span>میانگین وزنی درصدها</span><strong id="examAvg">—</strong></div>
-<div class="stat"><span>میانگین نمرات یازدهم</span><strong id="avg11">—</strong></div>
-<div class="stat"><span>میانگین نمرات دوازدهم</span><strong id="avg12">—</strong></div>
-<div class="stat"><span>شاخص آزمون اختصاصی</span><strong id="examIndex">—</strong></div>
-</div>
-<div class="note" id="explain"></div>
-</div>
+<section class="glass panel">
+  <h2 class="section-title">محاسبه نتیجه</h2>
+  <div class="actions">
+    <button class="main-btn" type="button" onclick="calculate()">محاسبه تخمین تراز</button>
+    <button class="reset-btn" type="button" onclick="resetForm()">پاک کردن اطلاعات</button>
+  </div>
+</section>
 
-<div class="footer">ESLO ACADEMY · آکادمی اسلو</div>
+<section class="result" id="result">
+  <div class="glass result-main">
+    <div class="caption">شاخص تخمینی عملکرد کلی</div>
+    <div class="big-score" id="totalScore">—</div>
+    <div class="caption">عدد آزمایشی؛ نه تراز رسمی سازمان سنجش</div>
+  </div>
+  <div class="result-grid">
+    <div class="glass result-item">
+      <span>میانگین وزنی درصد کنکور</span>
+      <strong id="examAverage">—</strong>
+    </div>
+    <div class="glass result-item">
+      <span>میانگین نمرات یازدهم</span>
+      <strong id="average11">—</strong>
+    </div>
+    <div class="glass result-item">
+      <span>میانگین نمرات دوازدهم</span>
+      <strong id="average12">—</strong>
+    </div>
+    <div class="glass result-item">
+      <span>شاخص سوابق تحصیلی</span>
+      <strong id="schoolIndex">—</strong>
+    </div>
+  </div>
+  <div class="note warning">
+    این خروجی صرفاً یک شاخص آزمایشی برای مقایسه عملکرد واردشده است. تراز واقعی به نرمال‌سازی نمرات، ضرایب رسمی سوابق تحصیلی و عملکرد سایر داوطلبان وابسته است. این نسخه هنوز به داده‌های واقعی تراز ماز یا سازمان سنجش متصل نیست؛ بنابراین رتبه یا تراز رسمی را پیش‌بینی نمی‌کند.
+  </div>
+</section>
+
+<footer>ESLO ACADEMY · آکادمی اسلو</footer>
 </div>
 
 <script>
-const examSubjects=[
-["ادبیات تخصصی",8],["ریاضی و آمار",6],["عربی تخصصی",5],
-["تاریخ و جغرافیا",5],["جامعه‌شناسی",5],["فلسفه و منطق",5],
-["اقتصاد",2],["روان‌شناسی",2]
+const examList = [
+ ["ادبیات تخصصی",8],
+ ["ریاضی و آمار",6],
+ ["عربی تخصصی",5],
+ ["تاریخ و جغرافیا",5],
+ ["جامعه‌شناسی",5],
+ ["فلسفه و منطق",5],
+ ["اقتصاد",2],
+ ["روان‌شناسی",2]
 ];
-const gradeSubjects=["فارسی","دینی","عربی","زبان انگلیسی","سلامت و بهداشت",
-"علوم و فنون ادبی","ریاضی و آمار","جامعه‌شناسی","فلسفه","منطق",
-"تاریخ","جغرافیا","اقتصاد","روان‌شناسی"];
 
-function makeFields(target,items,prefix,max){
- const root=document.getElementById(target);
- root.innerHTML=items.map((item,i)=>{
-  const name=Array.isArray(item)?item[0]:item;
-  return `<div class="field"><label>${name}</label>
-  <input type="number" id="${prefix}${i}" min="${max===100?-100:0}" max="${max}" step="0.25" placeholder="${max===100?'درصد':'نمره از ۲۰'}"></div>`;
- }).join("");
+const grade11List = [
+ "دینی و زندگی ۲",
+ "فارسی ۲",
+ "عربی، زبان قرآن ۲",
+ "زبان خارجی ۲",
+ "تاریخ ۲",
+ "جامعه‌شناسی ۲"
+];
+
+const grade12List = [
+ "دینی و زندگی ۳",
+ "فارسی ۳",
+ "عربی، زبان قرآن ۳",
+ "زبان خارجی ۳",
+ "سلامت و بهداشت",
+ "علوم و فنون ادبی ۳",
+ "ریاضی و آمار ۳",
+ "جامعه‌شناسی ۳",
+ "فلسفه ۲",
+ "تاریخ ۳",
+ "جغرافیا ۳",
+ "اقتصاد",
+ "روان‌شناسی",
+ "علوم اجتماعی"
+];
+
+function createExamFields(){
+ const box=document.getElementById("examSubjects");
+ box.innerHTML=examList.map((s,i)=>`
+  <div class="subject-card">
+   <label>${s[0]}</label>
+   <input type="number" id="exam${i}" min="-33" max="100" step="0.1" placeholder="درصد">
+   <div class="coef">ضریب آزمون: ${s[1]}</div>
+  </div>
+ `).join("");
 }
-makeFields("examFields",examSubjects,"e",100);
-makeFields("grade11",gradeSubjects,"g11",20);
-makeFields("grade12",gradeSubjects,"g12",20);
 
-function getValues(prefix,count){
- return Array.from({length:count},(_,i)=>{
-  const v=document.getElementById(prefix+i).value.trim();
-  return v===""?null:Number(v);
+function createGradeFields(id,list,prefix){
+ const box=document.getElementById(id);
+ box.innerHTML=list.map((name,i)=>`
+  <div class="subject-card">
+   <label>${name}</label>
+   <input type="number" id="${prefix}${i}" min="0" max="20" step="0.01" placeholder="نمره از ۲۰">
+  </div>
+ `).join("");
+}
+
+function chooseYear(year){
+ document.getElementById("year").value=year;
+ document.querySelectorAll(".year-btn").forEach(btn=>{
+  btn.classList.toggle("active",Number(btn.dataset.year)===year);
  });
 }
-function average(arr){
- const valid=arr.filter(v=>v!==null && Number.isFinite(v));
- return valid.length?valid.reduce((a,b)=>a+b,0)/valid.length:null;
+
+function getValue(id){
+ const el=document.getElementById(id);
+ if(!el || el.value.trim()==="") return null;
+ const n=Number(el.value);
+ return Number.isFinite(n)?n:null;
 }
-function weightedExam(values){
- let sum=0,weights=0;
- values.forEach((v,i)=>{
-  if(v!==null && v>=-100 && v<=100){
-   sum+=v*examSubjects[i][1];weights+=examSubjects[i][1];
+
+function averageGrades(prefix,count){
+ let sum=0,number=0;
+ for(let i=0;i<count;i++){
+  const v=getValue(prefix+i);
+  if(v!==null){
+   if(v<0 || v>20) throw new Error("نمرات باید بین صفر تا ۲۰ باشند.");
+   sum+=v;number++;
   }
- });
- return weights?sum/weights:null;
+ }
+ return number?sum/number:null;
 }
-function calculate(){
- const exams=getValues("e",examSubjects.length);
- const g11=getValues("g11",gradeSubjects.length);
- const g12=getValues("g12",gradeSubjects.length);
- if(exams.every(v=>v===null)){
-  alert("حداقل درصد یک درس را وارد کن.");return;
- }
- if(exams.some(v=>v!==null&&(v< -100||v>100))){
-  alert("درصد درس‌ها باید بین منفی ۱۰۰ تا ۱۰۰ باشد.");return;
- }
- if([...g11,...g12].some(v=>v!==null&&(v<0||v>20))){
-  alert("نمرات باید بین صفر تا ۲۰ باشند.");return;
- }
- const ex=weightedExam(exams);
- const a11=average(g11),a12=average(g12);
- const year=document.getElementById("year").value;
- const w11=0.17,w12=0.43,wExam=0.40;
- const schoolAvailable=(a11!==null?w11:0)+(a12!==null?w12:0);
- const schoolScore=schoolAvailable?
-  ((a11===null?0:a11*w11)+(a12===null?0:a12*w12))/schoolAvailable:null;
 
- // مدل خطی آزمایشی؛ تا زمان کالیبراسیون با کارنامه‌های واقعی، تراز رسمی نیست.
- const examIndex=ex===null?null:5000+ex*40;
- let total=null;
- if(ex!==null&&schoolScore!==null){
-  total=5000+(examIndex-5000)*wExam+(schoolScore*250-5000)*schoolAvailable;
- }else if(ex!==null){
-  total=examIndex;
+function calculate(){
+ try{
+  let weighted=0,coefSum=0,entered=0;
+
+  examList.forEach((s,i)=>{
+   const v=getValue("exam"+i);
+   if(v!==null){
+    if(v < -33 || v > 100) throw new Error("درصدها باید بین منفی ۳۳ تا ۱۰۰ باشند.");
+    weighted+=v*s[1];
+    coefSum+=s[1];
+    entered++;
+   }
+  });
+
+  if(!entered) throw new Error("حداقل درصد یک درس کنکور را وارد کن.");
+
+  const examAvg=weighted/coefSum;
+  const avg11=averageGrades("g11_",grade11List.length);
+  const avg12=averageGrades("g12_",grade12List.length);
+
+  if(avg11===null && avg12===null)
+   throw new Error("حداقل یک نمره نهایی وارد کن.");
+
+  // شاخص آزمایشی و غیررسمی؛ فاقد نرمال‌سازی آماری
+  const schoolParts=[];
+  if(avg11!==null) schoolParts.push(avg11);
+  if(avg12!==null) schoolParts.push(avg12);
+  const schoolAvg=schoolParts.reduce((a,b)=>a+b,0)/schoolParts.length;
+
+  const examComponent=examAvg*10;
+  const schoolComponent=schoolAvg*250;
+  const total=(examComponent*.4)+(schoolComponent*.6);
+
+  document.getElementById("examAverage").textContent=examAvg.toFixed(1)+"٪";
+  document.getElementById("average11").textContent=avg11===null?"وارد نشده":avg11.toFixed(2);
+  document.getElementById("average12").textContent=avg12===null?"وارد نشده":avg12.toFixed(2);
+  document.getElementById("schoolIndex").textContent=(schoolAvg*250).toFixed(0);
+  document.getElementById("totalScore").textContent=Math.round(total).toLocaleString("fa-IR");
+
+  const result=document.getElementById("result");
+  result.classList.add("show");
+  result.scrollIntoView({behavior:"smooth",block:"start"});
+ }catch(error){
+  alert(error.message);
  }
- document.getElementById("result").style.display="block";
- document.getElementById("examAvg").textContent=ex===null?"—":ex.toFixed(1)+"٪";
- document.getElementById("avg11").textContent=a11===null?"وارد نشده":a11.toFixed(2);
- document.getElementById("avg12").textContent=a12===null?"وارد نشده":a12.toFixed(2);
- document.getElementById("examIndex").textContent=examIndex===null?"—":Math.round(examIndex).toLocaleString("fa-IR");
- document.getElementById("totalScore").textContent=total===null?"اطلاعات بیشتر لازم است":Math.round(total).toLocaleString("fa-IR");
- document.getElementById("explain").textContent=
- "این خروجی یک شاخص آزمایشی و خطی است، نه تراز رسمی سنجش و نه مدل کالیبره‌شده سایت‌های تخمین رتبه. نمرات دروس به‌صورت میانگین ساده محاسبه شده‌اند و ضرایب نهایی تک‌تک سوابق در این نسخه اعمال نشده‌اند. برای سال "+year+"، وزن‌های ۴۰٪ آزمون، ۱۷٪ یازدهم و ۴۳٪ دوازدهم در محاسبه آزمایشی استفاده شده‌اند. رتبه منطقه و کشوری فعلاً نمایش داده نمی‌شود تا داده معتبر برای تخمین آن فراهم شود.";
- document.getElementById("result").scrollIntoView({behavior:"smooth"});
 }
+
+function resetForm(){
+ document.querySelectorAll("input[type=number]").forEach(el=>el.value="");
+ document.getElementById("result").classList.remove("show");
+ chooseYear(1405);
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+createExamFields();
+createGradeFields("grade11",grade11List,"g11_");
+createGradeFields("grade12",grade12List,"g12_");
 </script>
 </body>
 </html>
