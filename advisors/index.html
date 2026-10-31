@@ -1,100 +1,392 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مشاوران آکادمی اسلو</title>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#080d1c">
+<title>مشاوران | آکادمی اسلو</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Vazirmatn',sans-serif;background:#080f20;color:white;line-height:2}
-.container{width:90%;max-width:1100px;margin:auto}
-header{padding:20px 0;background:#101d33;border-bottom:1px solid #263b59}
-nav{display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:23px;font-weight:900;color:#55c8ff;text-decoration:none}
-nav a:last-child{font-size:13px;color:#c5d6ec;text-decoration:none}
-.hero{text-align:center;padding:75px 15px;background:radial-gradient(ellipse at top,#194779,#080f20 75%)}
-.hero h1{font-size:38px;margin-bottom:12px}
-.hero h1 span{color:#55c8ff}
-.hero p{color:#aebed3;font-size:14px}
-section{padding:65px 0}
-.title{text-align:center;font-size:27px;margin-bottom:10px}
-.subtitle{text-align:center;color:#9cacc3;margin-bottom:35px;font-size:14px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:#111f38;border:1px solid #293f60;border-radius:17px;padding:25px;text-align:center}
-.avatar{width:100px;height:100px;border-radius:50%;margin:0 auto 15px;background:linear-gradient(140deg,#267fe0,#54caff);display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:800}
-.card h3{font-size:19px;margin-bottom:5px}
-.role{color:#55c8ff;font-size:13px;margin-bottom:12px}
-.card p{font-size:13px;color:#b4c4d8}
-.tag{display:inline-block;background:#1b3454;color:#9dd9ff;padding:5px 12px;border-radius:20px;font-size:11px;margin-top:15px}
-.note{background:#101e34;border:1px solid #2a4262;padding:25px;border-radius:14px;text-align:center;color:#b6c8de;margin-top:35px}
-footer{text-align:center;background:#050a13;padding:30px;color:#91a4c0;font-size:12px}
-@media(max-width:700px){.grid{grid-template-columns:1fr}nav{gap:10px}.hero h1{font-size:30px}}
+@font-face {
+  font-family: "Kalameh";
+  src: url("../fonts/Kalameh-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  --bg:#080d1c;
+  --surface:#111b30;
+  --blue:#328cff;
+  --light:#75b7ff;
+  --white:#f4f7ff;
+  --muted:#a1aec5;
+  --border:rgba(125,170,230,.16);
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html { scroll-behavior:smooth; }
+
+body {
+  background:var(--bg);
+  color:var(--white);
+  font-family:"IBM Plex Sans Arabic",sans-serif;
+  line-height:1.9;
+}
+
+a { color:inherit;text-decoration:none; }
+
+.container {
+  width:min(1100px,90%);
+  margin:auto;
+}
+
+/* HEADER */
+
+header {
+  padding:17px 0;
+  background:#0a1020;
+  border-bottom:1px solid var(--border);
+}
+
+.nav {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.logo {
+  font:32px "Lalezar",sans-serif;
+  direction:ltr;
+}
+
+.logo span { color:var(--blue); }
+
+.nav-links {
+  display:flex;
+  gap:24px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.nav-links a:hover { color:white; }
+
+.nav-btn {
+  background:var(--blue);
+  padding:8px 17px;
+  border-radius:9px;
+  font-size:13px;
+}
+
+/* HERO */
+
+.hero {
+  padding:85px 0 65px;
+  text-align:center;
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(50,140,255,.18),transparent 55%),
+    #080d1c;
+}
+
+.tag {
+  display:inline-block;
+  color:var(--light);
+  background:rgba(50,140,255,.1);
+  border:1px solid rgba(50,140,255,.3);
+  border-radius:30px;
+  padding:5px 15px;
+  font-size:12px;
+  margin-bottom:18px;
+}
+
+.hero h1 {
+  font:52px/1.5 "Lalezar",sans-serif;
+  margin-bottom:12px;
+}
+
+.hero h1 span { color:var(--blue); }
+
+.hero p {
+  max-width:650px;
+  margin:auto;
+  color:var(--muted);
+  font-size:14px;
+  line-height:2.3;
+}
+
+/* ADVISORS */
+
+.advisors {
+  padding:65px 0 90px;
+}
+
+.section-heading {
+  text-align:center;
+  margin-bottom:38px;
+}
+
+.section-heading h2 {
+  font:30px "Kalameh",sans-serif;
+  margin-bottom:8px;
+}
+
+.section-heading p {
+  color:var(--muted);
+  font-size:13px;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.card {
+  background:linear-gradient(145deg,#14213a,#0d1628);
+  border:1px solid var(--border);
+  border-radius:20px;
+  overflow:hidden;
+  transition:.3s;
+}
+
+.card:hover {
+  transform:translateY(-6px);
+  border-color:rgba(50,140,255,.5);
+}
+
+.avatar {
+  height:185px;
+  display:grid;
+  place-items:center;
+  background:
+    radial-gradient(circle at 50% 45%,rgba(50,140,255,.3),transparent 65%),
+    #111d34;
+}
+
+.avatar span {
+  width:90px;
+  height:90px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:rgba(50,140,255,.14);
+  border:1px solid rgba(117,183,255,.3);
+  color:var(--light);
+  font-size:35px;
+}
+
+.card-body {
+  padding:23px;
+}
+
+.status {
+  display:inline-block;
+  font-size:10px;
+  color:#f5c66b;
+  background:rgba(245,198,107,.1);
+  border:1px solid rgba(245,198,107,.2);
+  border-radius:20px;
+  padding:3px 10px;
+  margin-bottom:12px;
+}
+
+.card h3 {
+  font:23px "Kalameh",sans-serif;
+  margin-bottom:5px;
+}
+
+.specialty {
+  color:var(--light);
+  font-size:12px;
+  margin-bottom:13px;
+}
+
+.card p {
+  color:var(--muted);
+  font-size:12px;
+  line-height:2.1;
+  min-height:52px;
+}
+
+.card-btn {
+  display:block;
+  text-align:center;
+  border:1px solid rgba(50,140,255,.4);
+  color:var(--light);
+  padding:9px;
+  border-radius:9px;
+  margin-top:18px;
+  font-size:12px;
+  transition:.2s;
+}
+
+.card-btn:hover {
+  background:var(--blue);
+  color:white;
+}
+
+/* NOTICE */
+
+.notice {
+  margin-top:35px;
+  padding:20px;
+  border:1px solid rgba(245,198,107,.22);
+  background:rgba(245,198,107,.06);
+  border-radius:13px;
+  color:#d8c69e;
+  font-size:12px;
+  text-align:center;
+}
+
+/* FOOTER */
+
+footer {
+  border-top:1px solid var(--border);
+  padding:25px 0;
+  color:#8492aa;
+  font-size:12px;
+}
+
+.footer-inner {
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+@media(max-width:750px) {
+  .nav-links { display:none; }
+  .hero { padding:65px 0; }
+  .hero h1 { font-size:42px; }
+  .grid { grid-template-columns:1fr; }
+  .advisors { padding:50px 0; }
+  .footer-inner {
+    justify-content:center;
+    text-align:center;
+  }
+}
 </style>
 </head>
+
 <body>
 
 <header>
-<div class="container">
-<nav>
-<a href="../index.html" class="logo">ESLO ACADEMY</a>
-<a href="../index.html">بازگشت به صفحه اصلی ←</a>
-</nav>
-</div>
+  <div class="container nav">
+    <a href="../" class="logo">ESLO<span>.</span></a>
+
+    <nav class="nav-links">
+      <a href="../">خانه</a>
+      <a href="../ensani-counseling/">مشاوره انسانی</a>
+      <a href="./">مشاوران</a>
+      <a href="../#about">درباره ما</a>
+    </nav>
+
+    <a href="../register/" class="nav-btn">ثبت‌نام</a>
+  </div>
 </header>
 
-<div class="hero">
-<div class="container">
-<h1>تیم <span>مشاوران اسلو</span></h1>
-<p>همراهی آگاهانه در مسیر رشد و موفقیت تحصیلی</p>
-</div>
-</div>
+<main>
 
-<section>
-<div class="container">
-<h2 class="title">مشاوران آکادمی اسلو</h2>
-<p class="subtitle">آشنایی با اعضای تیم آموزشی ما</p>
+<section class="hero">
+  <div class="container">
+    <span class="tag">ESLO ACADEMY · OUR TEAM</span>
 
-<div class="grid">
+    <h1>تیم <span>مشاوران اسلو</span></h1>
 
-<div class="card">
-<div class="avatar">E</div>
-<h3>مشاور شماره یک</h3>
-<div class="role">مشاور تحصیلی</div>
-<p>معرفی کوتاه، سوابق تحصیلی و حوزه تخصصی این مشاور در این قسمت قرار می‌گیرد.</p>
-<div class="tag">مشاوره تحصیلی</div>
-</div>
-
-<div class="card">
-<div class="avatar">E</div>
-<h3>مشاور شماره دو</h3>
-<div class="role">مشاور کنکور انسانی</div>
-<p>اطلاعات و تجربه‌های آموزشی مشاور در این بخش نمایش داده خواهد شد.</p>
-<div class="tag">کنکور انسانی</div>
-</div>
-
-<div class="card">
-<div class="avatar">E</div>
-<h3>مشاور شماره سه</h3>
-<div class="role">برنامه‌ریز درسی</div>
-<p>معرفی سوابق و مهارت‌های برنامه‌ریزی درسی این مشاور.</p>
-<div class="tag">برنامه‌ریزی</div>
-</div>
-
-</div>
-
-<div class="note">
-<h3>به‌زودی اعضای تیم آکادمی اسلو معرفی می‌شوند.</h3>
-<p>اطلاعات واقعی مشاوران پس از تکمیل در این صفحه قرار خواهد گرفت.</p>
-</div>
-
-</div>
+    <p>
+      آشنایی با مشاوران آکادمی اسلو؛
+      افرادی که قرار است در مسیر برنامه‌ریزی،
+      آموزش و پیشرفت تحصیلی همراه دانش‌آموزان باشند.
+    </p>
+  </div>
 </section>
 
+<section class="advisors">
+  <div class="container">
+
+    <div class="section-heading">
+      <h2>مشاوران ما</h2>
+      <p>معرفی اعضای تیم آکادمی اسلو</p>
+    </div>
+
+    <div class="grid">
+
+      <article class="card">
+        <div class="avatar">
+          <span>01</span>
+        </div>
+        <div class="card-body">
+          <span class="status">نمونه آزمایشی</span>
+          <h3>مشاور شماره یک</h3>
+          <div class="specialty">مشاوره تحصیلی انسانی</div>
+          <p>
+            معرفی کوتاه مشاور و زمینه فعالیت
+            او در آکادمی اسلو در این قسمت قرار می‌گیرد.
+          </p>
+          <a href="../register/" class="card-btn">درخواست مشاوره</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="avatar">
+          <span>02</span>
+        </div>
+        <div class="card-body">
+          <span class="status">نمونه آزمایشی</span>
+          <h3>مشاور شماره دو</h3>
+          <div class="specialty">برنامه‌ریزی و مدیریت مطالعه</div>
+          <p>
+            معرفی کوتاه مشاور و زمینه فعالیت
+            او در آکادمی اسلو در این قسمت قرار می‌گیرد.
+          </p>
+          <a href="../register/" class="card-btn">درخواست مشاوره</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="avatar">
+          <span>03</span>
+        </div>
+        <div class="card-body">
+          <span class="status">نمونه آزمایشی</span>
+          <h3>مشاور شماره سه</h3>
+          <div class="specialty">آمادگی کنکور</div>
+          <p>
+            معرفی کوتاه مشاور و زمینه فعالیت
+            او در آکادمی اسلو در این قسمت قرار می‌گیرد.
+          </p>
+          <a href="../register/" class="card-btn">درخواست مشاوره</a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="notice">
+      توجه: اطلاعات این مشاوران صرفاً نمونه آزمایشی است و هنوز به‌عنوان اعضای واقعی تیم معرفی نشده‌اند.
+    </div>
+
+  </div>
+</section>
+
+</main>
+
 <footer>
-ESLO ACADEMY
-<br>
-© تمامی حقوق متعلق به آکادمی اسلو است.
+  <div class="container footer-inner">
+    <span>ESLO ACADEMY</span>
+    <span>تمام حقوق متعلق به آکادمی اسلو است.</span>
+    <span>© 2026 ESLO</span>
+  </div>
 </footer>
 
 </body>
