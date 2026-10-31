@@ -1,217 +1,421 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>آکادمی اسلو | ESLO ACADEMY</title>
-<meta name="description" content="آکادمی اسلو؛ همراه شما در مسیر موفقیت تحصیلی و کنکور انسانی.">
+<title>ESLO ACADEMY | آکادمی اسلو</title>
+<meta name="description" content="آکادمی اسلو؛ جایی برای یادگیری هوشمندانه و پیشرفت تحصیلی.">
 
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Estedad:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --bg: #080e1c;
-  --card: #101c31;
-  --blue: #278cff;
-  --cyan: #55c8ff;
-  --white: #f4f7ff;
-  --muted: #9aaac2;
+  --bg:#070b16;
+  --surface:#0d1425;
+  --surface2:#111e34;
+  --blue:#398cff;
+  --cyan:#63d5ff;
+  --text:#f5f8ff;
+  --muted:#9aaac3;
+  --line:rgba(135,180,255,.15);
 }
+
 * {margin:0;padding:0;box-sizing:border-box}
-html {scroll-behavior:smooth}
+html {scroll-behavior:smooth;scroll-padding-top:90px}
 body {
-  font-family:'Vazirmatn',sans-serif;
+  font-family:'Estedad',sans-serif;
   background:var(--bg);
-  color:var(--white);
+  color:var(--text);
   line-height:1.9;
+  overflow-x:hidden;
 }
 a {text-decoration:none;color:inherit}
-.container {width:90%;max-width:1150px;margin:auto}
+.container {width:min(1160px,90%);margin:auto}
 
 /* Header */
 header {
   position:sticky;
   top:0;
-  z-index:10;
-  background:rgba(8,14,28,.93);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid #1b2b46;
+  z-index:100;
+  background:rgba(7,11,22,.78);
+  backdrop-filter:blur(22px);
+  border-bottom:1px solid var(--line);
 }
 .nav {
-  min-height:78px;
+  min-height:82px;
   display:flex;
   justify-content:space-between;
   align-items:center;
   gap:20px;
 }
 .logo {
-  font-size:24px;
+  direction:ltr;
+  font-size:27px;
+  line-height:1;
   font-weight:900;
-  color:var(--cyan);
-  letter-spacing:1px;
+  letter-spacing:2px;
+  color:white;
 }
+.logo span {color:var(--cyan)}
 .logo small {
   display:block;
-  font-size:10px;
-  letter-spacing:4px;
-  color:#a7b8d2;
+  color:#8297b7;
+  font-size:9px;
+  letter-spacing:5px;
   text-align:center;
+  margin-top:7px;
 }
-.menu {display:flex;gap:25px;align-items:center}
-.menu a {font-size:13px;color:#c4d0e3}
+.menu {display:flex;gap:30px}
+.menu a {
+  font-size:13px;
+  color:#b8c5d9;
+  transition:.3s;
+}
 .menu a:hover {color:var(--cyan)}
 .nav-btn {
-  background:var(--blue);
-  padding:9px 18px;
-  border-radius:9px;
+  padding:10px 21px;
+  border-radius:10px;
+  background:linear-gradient(120deg,#2477ed,#4abaff);
   font-size:13px;
   font-weight:700;
+  box-shadow:0 7px 25px #2588ff35;
 }
 
 /* Hero */
 .hero {
-  min-height:570px;
+  position:relative;
+  min-height:690px;
   display:flex;
   align-items:center;
+  overflow:hidden;
   background:
-  radial-gradient(ellipse at 80% 20%,#153d70 0%,transparent 48%),
-  radial-gradient(ellipse at 10% 90%,#122a4c 0%,transparent 45%);
+    radial-gradient(ellipse at 78% 40%,#143c70 0%,transparent 45%),
+    radial-gradient(ellipse at 5% 90%,#102747 0%,transparent 38%);
 }
-.hero-content {max-width:700px;padding:90px 0}
-.tag {
-  display:inline-block;
-  border:1px solid #28568a;
+.hero:before {
+  content:"";
+  position:absolute;
+  width:480px;
+  height:480px;
+  border:1px solid #4b9cff22;
+  border-radius:50%;
+  left:-170px;
+  top:80px;
+  box-shadow:0 0 0 55px #4b9cff08,0 0 0 110px #4b9cff05;
+}
+.hero-layout {
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  align-items:center;
+  gap:35px;
+  position:relative;
+  z-index:1;
+}
+.hero-content {padding:85px 0}
+.eyebrow {
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:7px 15px;
+  border:1px solid #3e85c955;
+  border-radius:40px;
+  background:#12325a66;
   color:var(--cyan);
-  background:#102544;
-  border-radius:30px;
-  padding:5px 16px;
   font-size:12px;
-  margin-bottom:22px;
+  margin-bottom:25px;
+}
+.eyebrow i {
+  width:7px;height:7px;
+  border-radius:50%;
+  background:var(--cyan);
+  box-shadow:0 0 12px var(--cyan);
 }
 .hero h1 {
-  font-size:clamp(34px,6vw,58px);
-  line-height:1.5;
+  font-size:clamp(38px,5.5vw,67px);
+  line-height:1.55;
   font-weight:900;
+  letter-spacing:-1px;
 }
 .hero h1 span {
-  color:var(--cyan);
+  display:inline-block;
+  background:linear-gradient(90deg,#62d8ff,#398cff);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
 }
 .hero p {
-  color:var(--muted);
-  max-width:580px;
-  margin:20px 0 30px;
+  color:#aabbd3;
+  max-width:550px;
   font-size:15px;
+  margin:20px 0 32px;
 }
-.primary-btn {
-  display:inline-block;
-  background:linear-gradient(120deg,#1674e8,#36b5ff);
-  color:white;
-  padding:13px 27px;
-  border-radius:10px;
-  font-weight:700;
-  box-shadow:0 8px 30px #1674e844;
-}
-.secondary-btn {
-  display:inline-block;
-  border:1px solid #426084;
-  padding:12px 24px;
-  border-radius:10px;
-  margin-right:10px;
+.actions {display:flex;gap:13px;flex-wrap:wrap}
+.primary-btn,.secondary-btn {
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  padding:13px 25px;
+  border-radius:11px;
   font-size:14px;
-}
-
-/* Sections */
-section {padding:85px 0}
-.section-head {text-align:center;margin-bottom:40px}
-.section-head h2 {font-size:29px;font-weight:800}
-.section-head p {color:var(--muted);font-size:14px;margin-top:8px}
-.blue {color:var(--cyan)}
-
-/* Services */
-.grid {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:17px;
-}
-.card {
-  background:linear-gradient(145deg,#14243d,#0e192b);
-  border:1px solid #243b5b;
-  border-radius:16px;
-  padding:27px 20px;
+  font-weight:700;
   transition:.3s;
 }
-.card:hover {
-  transform:translateY(-6px);
-  border-color:var(--blue);
+.primary-btn {
+  background:linear-gradient(115deg,#2478ef,#4fc6ff);
+  box-shadow:0 10px 35px #2588ff35;
 }
-.icon {
-  font-size:28px;
-  margin-bottom:13px;
+.primary-btn:hover {transform:translateY(-4px);box-shadow:0 15px 40px #2588ff55}
+.secondary-btn {
+  border:1px solid #526e92;
+  color:#d8e7fa;
 }
-.card h3 {font-size:17px;margin-bottom:9px}
-.card p {color:var(--muted);font-size:13px}
+.secondary-btn:hover {background:#ffffff10}
+
+/* Hero visual */
+.visual {
+  position:relative;
+  min-height:420px;
+  display:grid;
+  place-items:center;
+}
+.visual-orbit {
+  width:310px;
+  height:310px;
+  border:1px solid #5abfff38;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  box-shadow:0 0 90px #278cff18,inset 0 0 60px #278cff12;
+  position:relative;
+}
+.visual-orbit:before,.visual-orbit:after {
+  content:"";
+  position:absolute;
+  border:1px solid #5abfff25;
+  border-radius:50%;
+}
+.visual-orbit:before {inset:25px}
+.visual-orbit:after {inset:55px}
+.visual-core {
+  width:170px;
+  height:170px;
+  border-radius:40px;
+  transform:rotate(-8deg);
+  background:linear-gradient(145deg,#1d66b4,#101f3c);
+  border:1px solid #74cfff75;
+  box-shadow:0 20px 70px #2588ff40;
+  display:grid;
+  place-items:center;
+  text-align:center;
+}
+.visual-core div {transform:rotate(8deg)}
+.visual-core strong {
+  display:block;
+  font-size:48px;
+  font-weight:900;
+  letter-spacing:3px;
+  color:white;
+}
+.visual-core small {
+  color:#9de4ff;
+  font-size:10px;
+  letter-spacing:4px;
+}
+.float-card {
+  position:absolute;
+  background:#12243cdd;
+  border:1px solid #5b9ddc55;
+  backdrop-filter:blur(15px);
+  border-radius:14px;
+  padding:13px 18px;
+  box-shadow:0 15px 35px #0005;
+}
+.float-card strong {display:block;font-size:14px}
+.float-card small {color:#9fb4d0;font-size:10px}
+.float-one {top:40px;right:0}
+.float-two {bottom:45px;left:0}
+
+/* General sections */
+section {padding:105px 0}
+.section-heading {
+  text-align:center;
+  margin-bottom:50px;
+}
+.section-heading .mini {
+  color:var(--cyan);
+  font-size:12px;
+  letter-spacing:2px;
+}
+.section-heading h2 {
+  font-size:clamp(27px,4vw,39px);
+  font-weight:800;
+  margin-top:9px;
+}
+.section-heading p {
+  color:var(--muted);
+  font-size:14px;
+  margin-top:8px;
+}
+.gradient-text {
+  background:linear-gradient(90deg,#5bd9ff,#398cff);
+  background-clip:text;
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+/* Services */
+.services-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+.service-card {
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(145deg,#14243b,#0b1425);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:30px 23px;
+  transition:.35s;
+}
+.service-card:before {
+  content:"";
+  position:absolute;
+  width:130px;height:130px;
+  background:#398cff15;
+  border-radius:50%;
+  top:-75px;left:-70px;
+  filter:blur(10px);
+}
+.service-card:hover {
+  transform:translateY(-9px);
+  border-color:#459fff88;
+  box-shadow:0 20px 45px #0003;
+}
+.service-icon {
+  width:55px;height:55px;
+  display:grid;place-items:center;
+  border-radius:15px;
+  background:linear-gradient(145deg,#174d85,#102c50);
+  font-size:25px;
+  margin-bottom:22px;
+}
+.service-card h3 {font-size:17px;margin-bottom:9px}
+.service-card p {color:var(--muted);font-size:12px;line-height:2.2}
 
 /* About */
 .about {
-  background:#0d192b;
-  border-top:1px solid #1d304d;
-  border-bottom:1px solid #1d304d;
+  background:linear-gradient(120deg,#0d1729,#0a1221);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
 }
-.about-box {
+.about-layout {
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:45px;
+  gap:65px;
   align-items:center;
 }
-.about-box h2 {font-size:30px;margin-bottom:18px}
-.about-box p {color:var(--muted);font-size:14px}
-.about-panel {
-  background:linear-gradient(145deg,#15375e,#101d34);
-  border:1px solid #31577f;
-  border-radius:20px;
-  padding:35px;
-  text-align:center;
+.about-copy .mini {color:var(--cyan);font-size:12px}
+.about-copy h2 {
+  font-size:clamp(28px,4vw,42px);
+  line-height:1.6;
+  margin:12px 0 20px;
 }
-.about-panel strong {
-  display:block;
-  color:var(--cyan);
-  font-size:35px;
+.about-copy p {color:var(--muted);font-size:14px}
+.about-visual {
+  min-height:330px;
+  border-radius:28px;
+  border:1px solid #3d79b955;
+  background:
+    radial-gradient(circle at 50% 35%,#1d5794,#101d35 65%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  box-shadow:inset 0 0 70px #378fff12,0 20px 60px #0003;
+}
+.about-visual strong {
+  direction:ltr;
+  font-size:75px;
+  font-weight:900;
+  letter-spacing:7px;
+  text-shadow:0 0 35px #54bdff55;
+}
+.about-visual span {
+  color:#a8dfff;
+  font-size:11px;
+  letter-spacing:7px;
+}
+.about-visual p {
+  color:#b5c7df;
+  font-size:13px;
+  margin-top:25px;
 }
 
 /* CTA */
-.cta {
-  text-align:center;
-  background:radial-gradient(ellipse at center,#163c68,#080e1c 75%);
+.cta {text-align:center}
+.cta-box {
+  position:relative;
+  overflow:hidden;
+  border:1px solid #438ee655;
+  border-radius:27px;
+  padding:65px 20px;
+  background:
+    radial-gradient(ellipse at 50% 120%,#1d5c9c,#101d34 75%);
 }
-.cta h2 {font-size:30px;margin-bottom:12px}
-.cta p {color:var(--muted);margin-bottom:25px}
+.cta-box h2 {font-size:clamp(25px,4vw,36px)}
+.cta-box p {color:#b2c3da;margin:12px 0 28px;font-size:14px}
 
 /* Footer */
 footer {
-  background:#050a13;
-  border-top:1px solid #1c2a40;
+  background:#050914;
+  border-top:1px solid var(--line);
   padding:35px 0;
-  text-align:center;
 }
-footer .logo {margin-bottom:12px}
-footer p {font-size:12px;color:var(--muted)}
+.footer-content {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+footer p {color:#8496b1;font-size:12px}
 
-@media(max-width:850px) {
-  .grid {grid-template-columns:repeat(2,1fr)}
-  .about-box {grid-template-columns:1fr}
+/* Responsive */
+@media(max-width:900px) {
+  .hero-layout {grid-template-columns:1fr}
+  .hero-content {padding:75px 0 20px}
+  .visual {min-height:350px}
+  .services-grid {grid-template-columns:repeat(2,1fr)}
+  .about-layout {grid-template-columns:1fr;gap:35px}
 }
 @media(max-width:600px) {
-  .nav {flex-direction:column;padding:13px 0}
-  .menu {gap:15px;flex-wrap:wrap;justify-content:center}
-  .menu a {font-size:12px}
-  .nav-btn {display:none}
-  .hero {min-height:490px}
-  .hero-content {padding:65px 0}
-  .hero h1 {font-size:35px}
+  .nav {min-height:auto;padding:17px 0;flex-wrap:wrap}
+  .logo {font-size:23px}
+  .menu {order:3;width:100%;justify-content:center;gap:19px}
+  .menu a {font-size:11px}
+  .nav-btn {font-size:11px;padding:8px 12px}
+  .hero {min-height:auto}
+  .hero-content {padding:65px 0 5px}
+  .hero h1 {font-size:40px}
   .hero p {font-size:13px}
-  section {padding:60px 0}
-  .grid {grid-template-columns:1fr}
-  .secondary-btn {margin:12px 0 0}
+  .visual {min-height:310px}
+  .visual-orbit {width:245px;height:245px}
+  .visual-core {width:135px;height:135px}
+  .visual-core strong {font-size:39px}
+  .float-card {padding:9px 12px}
+  .float-one {right:-5px;top:20px}
+  .float-two {left:-5px;bottom:20px}
+  section {padding:70px 0}
+  .services-grid {grid-template-columns:1fr}
+  .service-card {padding:25px}
+  .about-visual {min-height:260px}
+  .about-visual strong {font-size:60px}
+  .cta-box {padding:45px 18px}
+  .footer-content {justify-content:center;text-align:center}
 }
 </style>
 </head>
@@ -220,10 +424,7 @@ footer p {font-size:12px;color:var(--muted)}
 
 <header>
   <div class="container nav">
-    <a href="#home" class="logo">
-      ESLO
-      <small>ACADEMY</small>
-    </a>
+    <a href="#home" class="logo">ESLO<span>.</span><small>ACADEMY</small></a>
 
     <nav class="menu">
       <a href="#home">خانه</a>
@@ -232,106 +433,135 @@ footer p {font-size:12px;color:var(--muted)}
       <a href="#contact">ارتباط با ما</a>
     </nav>
 
-    <a href="#contact" class="nav-btn">شروع مشاوره</a>
+    <a href="register/" class="nav-btn">ثبت‌نام در آکادمی</a>
   </div>
 </header>
 
 <main>
 
-<div class="hero" id="home">
-  <div class="container">
+<section class="hero" id="home">
+  <div class="container hero-layout">
+
     <div class="hero-content">
-      <div class="tag">مسیر موفقیت از اینجا شروع می‌شود</div>
+      <div class="eyebrow"><i></i> فضای یادگیری و پیشرفت</div>
 
       <h1>
-        آینده‌ات را<br>
-        <span>هوشمندانه بساز</span>
+        متفاوت یاد بگیر،<br>
+        <span>هوشمندانه پیشرفت کن.</span>
       </h1>
 
       <p>
         به آکادمی اسلو خوش آمدی؛
-        جایی برای یادگیری بهتر، برنامه‌ریزی اصولی
-        و حرکت هدفمند به سمت موفقیت تحصیلی.
+        فضایی برای یادگیری عمیق‌تر، برنامه‌ریزی هدفمند
+        و ساختن آینده‌ای روشن‌تر.
       </p>
 
-      <a href="#services" class="primary-btn">مشاهده خدمات</a>
-      <a href="#about" class="secondary-btn">درباره آکادمی</a>
+      <div class="actions">
+        <a href="register/" class="primary-btn">شروع ثبت‌نام ←</a>
+        <a href="#services" class="secondary-btn">کشف خدمات</a>
+      </div>
     </div>
+
+    <div class="visual">
+      <div class="visual-orbit">
+        <div class="visual-core">
+          <div>
+            <strong>ESLO</strong>
+            <small>ACADEMY</small>
+          </div>
+        </div>
+      </div>
+      <div class="float-card float-one">
+        <strong>یادگیری هوشمند</strong>
+        <small>Learn with purpose</small>
+      </div>
+      <div class="float-card float-two">
+        <strong>مسیر پیشرفت</strong>
+        <small>Build your future</small>
+      </div>
+    </div>
+
   </div>
-</div>
+</section>
 
 <section id="services">
   <div class="container">
-    <div class="section-head">
-      <h2>خدمات <span class="blue">آکادمی اسلو</span></h2>
-      <p>همراه تو در تمام مراحل مسیر تحصیلی</p>
+    <div class="section-heading">
+      <div class="mini">WHAT WE OFFER</div>
+      <h2>مسیر تو، <span class="gradient-text">امکانات ما</span></h2>
+      <p>ابزارهایی برای ساختن یک مسیر تحصیلی هدفمند</p>
     </div>
 
-    <div class="grid">
-      <div class="card">
-        <div class="icon">📚</div>
+    <div class="services-grid">
+
+      <article class="service-card">
+        <div class="service-icon">📚</div>
         <h3>برنامه‌ریزی درسی</h3>
-        <p>برنامه‌ریزی متناسب با شرایط و اهداف تحصیلی دانش‌آموزان.</p>
-      </div>
+        <p>برنامه‌ریزی متناسب با شرایط، اهداف و سبک یادگیری دانش‌آموز.</p>
+      </article>
 
-      <div class="card">
-        <div class="icon">🎯</div>
+      <article class="service-card">
+        <div class="service-icon">🎯</div>
         <h3>مشاوره کنکور</h3>
-        <p>راهنمایی و همراهی برای انتخاب مسیر درست موفقیت.</p>
-      </div>
+        <p>راهنمایی برای شناخت مسیر و تصمیم‌گیری آگاهانه در کنکور.</p>
+      </article>
 
-      <div class="card">
-        <div class="icon">📖</div>
-        <h3>آموزش انسانی</h3>
-        <p>مطالب آموزشی و نکات کاربردی ویژه رشته علوم انسانی.</p>
-      </div>
+      <article class="service-card">
+        <div class="service-icon">📖</div>
+        <h3>آموزش علوم انسانی</h3>
+        <p>محتوا و نکات آموزشی ویژه دانش‌آموزان رشته علوم انسانی.</p>
+      </article>
 
-      <div class="card">
-        <div class="icon">🧠</div>
-        <h3>مهارت‌های مطالعه</h3>
-        <p>آشنایی با روش‌های اصولی یادگیری و مدیریت زمان.</p>
-      </div>
+      <article class="service-card">
+        <div class="service-icon">🧠</div>
+        <h3>مهارت مطالعه</h3>
+        <p>آشنایی با روش‌های یادگیری، تمرکز و مدیریت زمان.</p>
+      </article>
+
     </div>
   </div>
 </section>
 
 <section class="about" id="about">
-  <div class="container about-box">
-    <div>
-      <h2>درباره <span class="blue">آکادمی اسلو</span></h2>
+  <div class="container about-layout">
+
+    <div class="about-copy">
+      <div class="mini">ABOUT ESLO ACADEMY</div>
+      <h2>یادگیری فقط شروع ماجراست؛<br><span class="gradient-text">پیشرفت هدف ماست.</span></h2>
       <p>
-        آکادمی اسلو با هدف ارائه محتوای آموزشی،
-        مشاوره تحصیلی و ایجاد مسیری روشن برای
-        دانش‌آموزان طراحی شده است.
-        هدف ما این است که هر دانش‌آموز بتواند
-        با شناخت بهتر توانایی‌های خود،
-        برای آینده‌اش تصمیم بگیرد.
+        آکادمی اسلو با هدف فراهم‌کردن محتوای آموزشی،
+        راهنمایی تحصیلی و ایجاد تجربه‌ای بهتر برای یادگیری
+        شکل گرفته است. ما باور داریم شناخت مسیر،
+        اولین قدم برای ساختن آینده‌ای بهتر است.
       </p>
     </div>
 
-    <div class="about-panel">
+    <div class="about-visual">
       <strong>ESLO</strong>
-      <h3>Think Better. Achieve More.</h3>
-      <p>بهتر فکر کن، بیشتر پیشرفت کن.</p>
+      <span>THINK BETTER</span>
+      <p>بهتر فکر کن، هوشمندانه‌تر پیش برو.</p>
     </div>
+
   </div>
 </section>
 
 <section class="cta" id="contact">
   <div class="container">
-    <h2>آماده شروع یک مسیر جدید هستی؟</h2>
-    <p>برای آشنایی بیشتر با خدمات آکادمی اسلو همراه ما باش.</p>
-    <a href="#services" class="primary-btn">مشاهده خدمات آکادمی</a>
+    <div class="cta-box">
+      <h2>آینده از یک تصمیم شروع می‌شود.</h2>
+      <p>برای شروع مسیر یادگیری و آشنایی با آکادمی اسلو اقدام کن.</p>
+      <a href="register/" class="primary-btn">ورود به فرم ثبت‌نام ←</a>
+    </div>
   </div>
 </section>
 
 </main>
 
 <footer>
-  <div class="container">
-    <div class="logo">ESLO ACADEMY</div>
+  <div class="container footer-content">
+    <a href="#home" class="logo">ESLO<span>.</span><small>ACADEMY</small></a>
     <p>© تمامی حقوق متعلق به آکادمی اسلو است.</p>
-    <p>ساخته شده با هدف آموزش و پیشرفت</p>
+    <p>Think Better. Achieve More.</p>
   </div>
 </footer>
 
