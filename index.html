@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>آکادمی اسلو | مسیر موفقیت تو</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Vazirmatn',sans-serif;
+  background:#080f20;
+  color:#fff;
+  line-height:1.9;
+}
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 8%;
+  background:#0d1930;
+  border-bottom:1px solid #20365a;
+}
+.logo{font-size:23px;font-weight:800;color:#55b9ff}
+nav a{
+  color:#d9e8fa;
+  text-decoration:none;
+  margin:0 10px;
+  font-size:14px;
+}
+.hero{
+  text-align:center;
+  padding:100px 20px;
+  background:radial-gradient(ellipse at top,#173c70,#080f20 70%);
+}
+.hero span{color:#55b9ff}
+.hero h1{font-size:38px;margin-bottom:20px}
+.hero p{color:#b8c9df;max-width:600px;margin:0 auto 30px}
+.btn{
+  display:inline-block;
+  background:#168cf0;
+  color:white;
+  text-decoration:none;
+  padding:12px 28px;
+  border-radius:10px;
+  font-weight:600;
+}
+section{padding:65px 8%;text-align:center}
+.section-title{font-size:27px;margin-bottom:12px}
+.subtitle{color:#9eb2cd;margin-bottom:35px}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:18px;
+}
+.card{
+  background:#111f38;
+  border:1px solid #263d60;
+  padding:28px 20px;
+  border-radius:16px;
+}
+.card h3{color:#55b9ff;margin-bottom:12px}
+.card p{color:#b7c5d9;font-size:14px}
+.about{background:#0c172a}
+footer{
+  text-align:center;
+  padding:25px;
+  background:#050a14;
+  color:#8da5c4;
+  font-size:13px;
+}
+@media(max-width:600px){
+  header{padding:15px 5%;flex-direction:column;gap:10px}
+  nav a{margin:0 5px;font-size:12px}
+  .hero{padding:75px 18px}
+  .hero h1{font-size:29px}
+  section{padding:50px 6%}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">ESLO | اسلو</div>
+  <nav>
+    <a href="#home">خانه</a>
+    <a href="#services">خدمات</a>
+    <a href="#about">درباره ما</a>
+  </nav>
+</header>
+
+<div class="hero" id="home">
+  <h1>آینده‌ات را <span>هوشمندانه</span> بساز</h1>
+  <p>
+    به آکادمی اسلو خوش آمدی؛
+    همراه تو در مسیر یادگیری، برنامه‌ریزی و موفقیت تحصیلی.
+  </p>
+  <a href="#services" class="btn">شروع مسیر موفقیت</a>
+</div>
+
+<section id="services">
+  <h2 class="section-title">خدمات آکادمی اسلو</h2>
+  <p class="subtitle">همه چیز برای یک مسیر تحصیلی هدفمند</p>
+
+  <div class="cards">
+    <div class="card">
+      <h3>برنامه‌ریزی درسی</h3>
+      <p>برنامه‌ریزی منظم و متناسب با شرایط تحصیلی تو.</p>
+    </div>
+    <div class="card">
+      <h3>مشاوره تحصیلی</h3>
+      <p>راهنمایی برای انتخاب مسیر درست و رسیدن به اهداف.</p>
+    </div>
+    <div class="card">
+      <h3>آموزش کنکور انسانی</h3>
+      <p>مطالب و راهکارهای آموزشی برای داوطلبان انسانی.</p>
+    </div>
+    <div class="card">
+      <h3>منابع آموزشی</h3>
+      <p>محتوا و مطالب کاربردی برای پیشرفت درسی.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <h2 class="section-title">درباره آکادمی اسلو</h2>
+  <p class="subtitle">
+    اینجا قرار است با برنامه، تلاش و آموزش درست،
+    قدم‌به‌قدم به اهداف تحصیلی خودت نزدیک شوی.
+  </p>
+</section>
+
+<footer>
+  © تمامی حقوق متعلق به آکادمی اسلو است.
+  <br>
+  ESLO ACADEMY
+</footer>
+
+</body>
+</html>
