@@ -502,6 +502,81 @@ footer strong{
 
 .footer-links a{color:#aaa;transition:.2s}
 .footer-links a:hover{color:var(--yellow)}
+  
+.header-tools{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.tool-btn{
+  min-width:43px;
+  height:43px;
+  padding:0 11px;
+  border:1px solid rgba(255,229,0,.3);
+  border-radius:12px;
+  background:rgba(255,229,0,.07);
+  color:var(--yellow);
+  font-size:14px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.tool-btn:hover{
+  background:rgba(255,229,0,.16);
+  transform:translateY(-2px);
+}
+
+@media(max-width:760px){
+  .header-tools{margin-right:auto}
+  .nav{gap:9px}
+}
+
+/* DAY THEME */
+body.light{
+  --bg:#F3F4F6;
+  --surface:rgba(255,255,255,.7);
+  --white:#17191D;
+  --gray:#626873;
+  --border:rgba(20,25,35,.13);
+  color:var(--white);
+  background:var(--bg);
+}
+
+body.light header{
+  background:rgba(245,246,248,.92);
+}
+
+body.light .nav nav a{color:#333}
+body.light .nav nav a.nav-highlight{color:#111}
+body.light .glass,
+body.light .card{
+  background:rgba(255,255,255,.76);
+  box-shadow:0 12px 35px rgba(0,0,0,.06);
+}
+body.light .hero-card{
+  background:linear-gradient(145deg,#fff,#eceef1);
+}
+body.light .services{
+  background:rgba(0,0,0,.025);
+}
+body.light footer{
+  background:rgba(255,255,255,.5);
+}
+body.light .footer-links a{color:#555}
+body.light .btn-glass{
+  color:#222;
+  border-color:rgba(0,0,0,.2);
+  background:rgba(255,255,255,.65);
+}
+body.light .nav nav{
+  background:rgba(255,255,255,.98);
+}
+body.light .nav nav a{
+  color:#333;
+}
+
 
 /* RESPONSIVE */
 
@@ -598,6 +673,17 @@ footer strong{
            onerror="this.style.display='none'">
       ESLO ACADEMY
     </a>
+    
+<div class="header-tools">
+  <button id="themeToggle" class="tool-btn" type="button" aria-label="تغییر تم">
+    ☀️
+  </button>
+
+  <button id="langToggle" class="tool-btn" type="button">
+    EN
+  </button>
+</div>
+
 
     <button class="menu-toggle" id="menuToggle"
       type="button" aria-label="باز کردن منو"
