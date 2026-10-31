@@ -1,32 +1,31 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080d1c">
 <title>ثبت‌نام | آکادمی اسلو</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Estedad:wght@300;400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 @font-face {
-  font-family: "Kalameh";
-  src: url("../fonts/Kalameh-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-display: swap;
+  font-family:Kalameh;
+  src:url("../fonts/Kalameh-Bold.woff2") format("woff2");
+  font-weight:700;
+  font-display:swap;
 }
 
 :root {
-  --bg:#080d1c;
-  --surface:#111b30;
-  --blue:#328cff;
-  --light:#75b7ff;
-  --white:#f4f7ff;
-  --muted:#a1aec5;
-  --border:rgba(125,170,230,.16);
+  --bg:#090B0E;
+  --surface:#17191D;
+  --surface2:#202226;
+  --yellow:#FFE500;
+  --gold:#D6A928;
+  --white:#F5F5F2;
+  --gray:#A5A5A5;
+  --border:#303034;
 }
 
 * {
@@ -35,162 +34,266 @@
   box-sizing:border-box;
 }
 
+html { scroll-behavior:smooth; }
+
 body {
   background:var(--bg);
   color:var(--white);
   font-family:"IBM Plex Sans Arabic",sans-serif;
-  line-height:1.9;
+  line-height:2;
 }
 
+h1,h2,h3,h4 {
+  font-family:Lalezar,sans-serif;
+  font-weight:400;
+  line-height:1.5;
+}
+
+p,li { font-family:Vazirmatn,sans-serif; }
+a,button,nav { font-family:Estedad,sans-serif; }
+.number,.english,.tag { font-family:"Readex Pro",sans-serif; }
+.special { font-family:Kalameh,Lalezar,sans-serif; }
+
 a {
-  color:inherit;
   text-decoration:none;
+  color:inherit;
 }
 
 .container {
-  width:min(950px,90%);
+  width:min(1100px,90%);
   margin:auto;
 }
 
 /* HEADER */
 
 header {
-  padding:17px 0;
-  background:#0a1020;
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(9,11,14,.96);
   border-bottom:1px solid var(--border);
+  backdrop-filter:blur(15px);
 }
 
 .nav {
+  min-height:78px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
 
 .logo {
-  direction:ltr;
-  font:32px "Lalezar",sans-serif;
+  color:var(--yellow);
+  font-family:Lalezar,sans-serif;
+  font-size:24px;
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
-.logo span { color:var(--blue); }
+.logo img {
+  width:45px;
+  height:45px;
+  object-fit:contain;
+}
 
-.back {
-  color:var(--light);
+nav {
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
   font-size:13px;
+}
+
+nav a { color:#ddd; }
+nav a:hover { color:var(--yellow); }
+
+/* BUTTON */
+
+.btn {
+  display:inline-block;
+  background:var(--yellow);
+  color:#090909;
+  padding:11px 24px;
+  border-radius:9px;
+  font-weight:800;
+  transition:.25s;
+}
+
+.btn:hover {
+  background:var(--gold);
+  transform:translateY(-3px);
 }
 
 /* HERO */
 
 .hero {
+  padding:85px 0 55px;
+  background:
+    radial-gradient(ellipse at 15% 30%,rgba(214,169,40,.14),transparent 42%),
+    radial-gradient(ellipse at 85% 80%,rgba(255,229,0,.07),transparent 35%);
+}
+
+.hero-content {
+  max-width:800px;
+  margin:auto;
   text-align:center;
-  padding:65px 0 35px;
-  background:radial-gradient(ellipse at 50% 0%,rgba(50,140,255,.17),transparent 60%);
 }
 
 .tag {
-  display:inline-block;
-  color:var(--light);
-  background:rgba(50,140,255,.1);
-  border:1px solid rgba(50,140,255,.3);
-  border-radius:30px;
-  padding:5px 15px;
+  color:var(--yellow);
   font-size:12px;
-  margin-bottom:15px;
+  letter-spacing:2px;
 }
 
 .hero h1 {
-  font:46px "Lalezar",sans-serif;
-  margin-bottom:10px;
+  font-size:clamp(42px,7vw,68px);
+  margin:15px 0;
 }
 
-.hero h1 span { color:var(--blue); }
+.hero h1 span { color:var(--yellow); }
 
 .hero p {
-  color:var(--muted);
-  font-size:14px;
-  line-height:2.2;
+  color:var(--gray);
   max-width:650px;
   margin:auto;
 }
 
-/* FORM */
+/* REGISTRATION */
 
-.form-section {
-  padding:30px 0 80px;
+.registration {
+  padding:40px 0 85px;
 }
 
-.form-card {
-  background:linear-gradient(145deg,#14213a,#0d1628);
-  border:1px solid var(--border);
-  border-radius:22px;
-  padding:28px;
+.register-grid {
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:25px;
+  align-items:stretch;
 }
 
-.form-heading {
-  margin-bottom:20px;
+.info-panel {
+  background:linear-gradient(145deg,#29220d,#17191d);
+  border:1px solid #594817;
+  border-radius:20px;
+  padding:30px;
 }
 
-.form-heading h2 {
-  font:25px "Kalameh",sans-serif;
-  margin-bottom:5px;
+.info-panel h2 {
+  font-family:Kalameh,Lalezar,sans-serif;
+  font-size:29px;
+  margin-bottom:15px;
 }
 
-.form-heading p {
-  color:var(--muted);
-  font-size:12px;
+.info-panel p {
+  color:#c2bda9;
+  font-size:14px;
 }
 
-.form-frame {
-  background:white;
-  border-radius:13px;
-  overflow:hidden;
-  min-height:900px;
+.info-list {
+  margin-top:25px;
+  display:grid;
+  gap:15px;
 }
 
-iframe {
-  width:100%;
-  height:900px;
-  border:0;
+.info-item {
+  border-right:3px solid var(--yellow);
+  padding:5px 13px;
+}
+
+.info-item strong {
   display:block;
+  color:var(--yellow);
+  font-family:Estedad,sans-serif;
+  font-size:14px;
 }
 
-/* INFO */
-
-.info {
-  margin-top:20px;
-  padding:20px;
-  border-radius:14px;
-  background:rgba(50,140,255,.07);
-  border:1px solid rgba(50,140,255,.2);
-}
-
-.info h3 {
-  font:20px "Kalameh",sans-serif;
-  color:var(--light);
-  margin-bottom:8px;
-}
-
-.info p {
-  color:var(--muted);
+.info-item span {
+  color:#c2bda9;
+  font-family:Vazirmatn,sans-serif;
   font-size:12px;
-  line-height:2.2;
+}
+
+.form-panel {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:18px;
+  min-width:0;
+}
+
+.form-panel h2 {
+  font-size:28px;
+  margin:5px 10px 15px;
+}
+
+.form-panel iframe {
+  display:block;
+  width:100%;
+  min-height:850px;
+  border:0;
+  border-radius:12px;
+  background:#fff;
+}
+
+/* NOTICE */
+
+.notice {
+  margin-top:20px;
+  padding:17px;
+  background:#201b0b;
+  border:1px solid #594817;
+  border-radius:12px;
+}
+
+.notice p {
+  color:#d9d2b5;
+  font-size:12px;
 }
 
 /* FOOTER */
 
 footer {
   border-top:1px solid var(--border);
-  padding:25px 0;
-  color:#8492aa;
-  font-size:12px;
+  padding:30px 0;
   text-align:center;
+  color:var(--gray);
+  font-size:12px;
 }
 
-@media(max-width:600px) {
-  .hero { padding:50px 0 25px; }
-  .hero h1 { font-size:37px; }
-  .form-card { padding:15px; }
-  .form-section { padding-bottom:50px; }
-  iframe { height:950px; }
+footer strong {
+  color:var(--yellow);
+  font-family:"Readex Pro",sans-serif;
+}
+
+/* MOBILE */
+
+@media(max-width:760px) {
+  .register-grid {
+    grid-template-columns:1fr;
+  }
+
+  .nav {
+    flex-direction:column;
+    padding:12px 0;
+  }
+
+  nav {
+    justify-content:center;
+    gap:12px;
+  }
+
+  .hero {
+    padding:60px 0 35px;
+  }
+
+  .form-panel {
+    padding:10px;
+  }
+
+  .form-panel iframe {
+    min-height:950px;
+  }
 }
 </style>
 </head>
@@ -199,53 +302,95 @@ footer {
 
 <header>
   <div class="container nav">
-    <a href="../" class="logo">ESLO<span>.</span></a>
-    <a href="../" class="back">بازگشت به صفحه اصلی ←</a>
+
+    <a class="logo" href="../">
+      <img src="../eslo-logo.png" alt="لوگوی اسلو"
+           onerror="this.style.display='none'">
+      ESLO ACADEMY
+    </a>
+
+    <nav>
+      <a href="../">خانه</a>
+      <a href="../ensani-counseling/">مشاوره</a>
+      <a href="../advisors/">مشاوران</a>
+      <a href="../about/">درباره ما</a>
+      <a href="./">ثبت‌نام</a>
+    </nav>
+
   </div>
 </header>
 
 <main>
 
-<section class="hero">
-  <div class="container">
-    <span class="tag">ESLO ACADEMY · REGISTRATION</span>
+<div class="hero">
+  <div class="container hero-content">
 
-    <h1>به خانواده <span>اسلو</span> بپیوند</h1>
+    <div class="tag">JOIN ESLO ACADEMY</div>
+
+    <h1>
+      شروع مسیر <span class="special">موفقیت</span>
+    </h1>
 
     <p>
-      برای شروع مسیر تحصیلی خود در آکادمی اسلو،
-      فرم زیر را با دقت تکمیل کن.
+      برای شروع همکاری با آکادمی اسلو،
+      فرم ثبت‌نام را تکمیل کن.
     </p>
+
   </div>
-</section>
+</div>
 
-<section class="form-section">
-  <div class="container">
+<section class="registration">
+  <div class="container register-grid">
 
-    <div class="form-card">
+    <div class="info-panel">
 
-      <div class="form-heading">
-        <h2>فرم ثبت‌نام</h2>
-        <p>اطلاعات اولیه خود را وارد کن.</p>
+      <h2>به آکادمی اسلو خوش آمدی</h2>
+
+      <p>
+        اینجا می‌توانی درخواست خودت را برای دریافت خدمات
+        آموزشی و مشاوره تحصیلی ثبت کنی.
+        پس از ارسال فرم، مراحل بعدی از طریق راه ارتباطی
+        اعلام‌شده در فرم پیگیری خواهد شد.
+      </p>
+
+      <div class="info-list">
+
+        <div class="info-item">
+          <strong>مرحله اول</strong>
+          <span>تکمیل اطلاعات اولیه</span>
+        </div>
+
+        <div class="info-item">
+          <strong>مرحله دوم</strong>
+          <span>بررسی درخواست ثبت‌شده</span>
+        </div>
+
+        <div class="info-item">
+          <strong>مرحله سوم</strong>
+          <span>هماهنگی برای شروع همکاری</span>
+        </div>
+
       </div>
 
-      <div class="form-frame">
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLScoLv42bU9C5kpBHL3-TbJ_RcredT6ws43LU0KvbFgmt8LUpg/viewform?embedded=true"
-          title="فرم ثبت‌نام آکادمی اسلو"
-          loading="lazy">
-          در حال بارگذاری…
-        </iframe>
-      </div>
-
-      <div class="info">
-        <h3>پس از ثبت‌نام چه می‌شود؟</h3>
+      <div class="notice">
         <p>
-          پس از ارسال فرم، اطلاعات اولیه ثبت می‌شود.
-          برای ادامه فرایند و هماهنگی مراحل بعدی،
-          اطلاع‌رسانی از طریق راه ارتباطی اعلام‌شده انجام خواهد شد.
+          لطفاً اطلاعات را با دقت وارد کن و از صحت
+          اطلاعات تماس خود مطمئن شو.
         </p>
       </div>
+
+    </div>
+
+    <div class="form-panel">
+
+      <h2>فرم ثبت‌نام</h2>
+
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLScoLv42bU9C5kpBHL3-TbJ_RcredT6ws43LU0KvbFgmt8LUpg/viewform?embedded=true"
+        title="فرم ثبت‌نام آکادمی اسلو"
+        loading="lazy">
+        در حال بارگذاری فرم...
+      </iframe>
 
     </div>
 
@@ -256,7 +401,8 @@ footer {
 
 <footer>
   <div class="container">
-    ESLO ACADEMY · © 2026
+    <strong>ESLO ACADEMY</strong>
+    <p>تمام حقوق برای آکادمی اسلو محفوظ است.</p>
   </div>
 </footer>
 
