@@ -4,290 +4,337 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080d1c">
-<title>مشاوره تحصیلی انسانی | آکادمی اسلو</title>
+<title>مشاوره کنکور انسانی | آکادمی اسلو</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Estedad:wght@300;400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Readex+Pro:wght@300;400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 @font-face {
-  font-family: "Kalameh";
+  font-family: Kalameh;
   src: url("../fonts/Kalameh-Bold.woff2") format("woff2");
   font-weight: 700;
   font-display: swap;
 }
 
 :root {
-  --bg: #080d1c;
-  --surface: #111b30;
-  --blue: #328cff;
-  --light: #75b7ff;
-  --white: #f4f7ff;
-  --muted: #a1aec5;
-  --border: rgba(125,170,230,.16);
+  --bg:#090B0E;
+  --surface:#17191D;
+  --surface2:#202226;
+  --yellow:#FFE500;
+  --gold:#D6A928;
+  --white:#F5F5F2;
+  --gray:#A5A5A5;
+  --border:#303034;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior:smooth; }
 
 body {
-  background: var(--bg);
-  color: var(--white);
-  font-family: "IBM Plex Sans Arabic", sans-serif;
-  line-height: 2;
+  background:var(--bg);
+  color:var(--white);
+  font-family:"IBM Plex Sans Arabic",sans-serif;
+  line-height:2;
 }
 
-a { color: inherit; text-decoration: none; }
+h1,h2,h3,h4 {
+  font-family:Lalezar,sans-serif;
+  font-weight:400;
+  line-height:1.5;
+}
+
+p,li { font-family:Vazirmatn,sans-serif; }
+
+a,button,nav {
+  font-family:Estedad,sans-serif;
+}
+
+.number,.english,.tag {
+  font-family:"Readex Pro",sans-serif;
+}
+
+.special {
+  font-family:Kalameh,Lalezar,sans-serif;
+}
+
+a {
+  text-decoration:none;
+  color:inherit;
+}
 
 .container {
-  width: min(1100px, 90%);
-  margin: auto;
+  width:min(1100px,90%);
+  margin:auto;
 }
 
+/* HEADER */
+
 header {
-  border-bottom: 1px solid var(--border);
-  background: #0a1020;
-  padding: 17px 0;
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(9,11,14,.96);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(15px);
 }
 
 .nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
+  min-height:78px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
 
 .logo {
-  direction: ltr;
-  font: 32px "Lalezar", sans-serif;
+  color:var(--yellow);
+  font-family:Lalezar,sans-serif;
+  font-size:24px;
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
-.logo span { color: var(--blue); }
-
-.nav-links {
-  display: flex;
-  gap: 24px;
-  color: var(--muted);
-  font-size: 13px;
+.logo img {
+  width:45px;
+  height:45px;
+  object-fit:contain;
 }
 
-.nav-links a:hover { color: white; }
+nav {
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  font-size:13px;
+}
 
-.nav-btn {
-  background: var(--blue);
-  padding: 8px 17px;
-  border-radius: 9px;
-  font-size: 13px;
+nav a { color:#ddd; }
+nav a:hover { color:var(--yellow); }
+
+/* BUTTON */
+
+.btn {
+  display:inline-block;
+  background:var(--yellow);
+  color:#090909;
+  padding:11px 24px;
+  border-radius:9px;
+  font-weight:800;
+  transition:.25s;
+}
+
+.btn:hover {
+  background:var(--gold);
+  transform:translateY(-3px);
 }
 
 /* HERO */
 
 .hero {
-  padding: 90px 0;
-  position: relative;
-  overflow: hidden;
+  padding:95px 0;
   background:
-    radial-gradient(ellipse at 10% 30%,rgba(50,140,255,.17),transparent 45%),
-    linear-gradient(120deg,#080d1c,#101d35);
+    radial-gradient(ellipse at 15% 30%,rgba(214,169,40,.14),transparent 42%),
+    radial-gradient(ellipse at 85% 80%,rgba(255,229,0,.07),transparent 35%);
+}
+
+.hero-grid {
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  align-items:center;
+  gap:45px;
 }
 
 .tag {
-  display: inline-block;
-  padding: 5px 15px;
-  color: var(--light);
-  background: rgba(50,140,255,.1);
-  border: 1px solid rgba(50,140,255,.3);
-  border-radius: 30px;
-  font-size: 12px;
-  margin-bottom: 20px;
+  color:var(--yellow);
+  font-size:12px;
+  letter-spacing:2px;
 }
 
-.hero h1 {
-  font: 52px/1.5 "Lalezar", sans-serif;
-  margin-bottom: 15px;
+h1 {
+  font-size:clamp(40px,7vw,68px);
+  margin:16px 0;
 }
 
-.hero h1 span { color: var(--blue); }
+h1 span { color:var(--yellow); }
 
 .hero p {
-  color: var(--muted);
-  max-width: 650px;
-  font-size: 15px;
-  line-height: 2.3;
+  color:var(--gray);
+  margin-bottom:25px;
+  max-width:570px;
 }
 
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 13px;
-  margin-top: 27px;
+.hero-box {
+  background:linear-gradient(145deg,#242424,#111214);
+  border:1px solid #594817;
+  border-radius:22px;
+  padding:35px;
+  text-align:center;
 }
 
-.btn {
-  padding: 12px 24px;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 600;
+.hero-box strong {
+  display:block;
+  font-family:"Readex Pro",sans-serif;
+  font-size:50px;
+  color:var(--yellow);
 }
 
-.primary {
-  background: var(--blue);
-  color: white;
-}
+.hero-box h2 { font-size:28px; }
 
-.secondary {
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.03);
-}
+/* GENERAL SECTIONS */
 
-/* SECTIONS */
-
-section.content {
-  padding: 75px 0;
-}
+section { padding:75px 0; }
 
 .section-title {
-  text-align: center;
-  margin-bottom: 35px;
+  text-align:center;
+  margin-bottom:38px;
 }
 
-.section-title h2 {
-  font: 30px "Kalameh", sans-serif;
-  margin-bottom: 8px;
-}
+.section-title h2 { font-size:35px; }
 
 .section-title p {
-  color: var(--muted);
-  font-size: 14px;
+  color:var(--gray);
+  font-size:14px;
 }
 
+/* CARDS */
+
 .cards {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 18px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
 }
 
 .card {
-  background: linear-gradient(145deg,#14213a,#0d1628);
-  border: 1px solid var(--border);
-  border-radius: 17px;
-  padding: 25px;
-  transition: .25s;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:17px;
+  padding:25px;
+  transition:.25s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(50,140,255,.5);
+  border-color:var(--gold);
+  transform:translateY(-5px);
+  background:var(--surface2);
 }
 
-.icon {
-  width: 45px;
-  height: 45px;
-  display: grid;
-  place-items: center;
-  background: rgba(50,140,255,.13);
-  color: var(--light);
-  border-radius: 12px;
-  font-size: 21px;
-  margin-bottom: 15px;
+.card .number {
+  font-size:27px;
+  color:var(--yellow);
+  font-weight:700;
 }
 
 .card h3 {
-  font: 21px "Kalameh", sans-serif;
-  margin-bottom: 9px;
+  font-family:Kalameh,Lalezar,sans-serif;
+  font-size:24px;
+  margin:8px 0;
 }
 
 .card p {
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 2.2;
+  color:var(--gray);
+  font-size:13px;
+}
+
+/* SUBJECTS */
+
+.subjects {
+  background:#111316;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+
+.subject-list {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:13px;
+}
+
+.subject {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:16px 10px;
+  text-align:center;
+  font-family:Estedad,sans-serif;
+  transition:.2s;
+}
+
+.subject:hover {
+  border-color:var(--yellow);
+  color:var(--yellow);
 }
 
 /* PROCESS */
 
 .steps {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 15px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
 }
 
 .step {
-  border-right: 2px solid var(--blue);
-  background: #101a2d;
-  padding: 18px 20px;
-  border-radius: 12px;
+  border-right:3px solid var(--gold);
+  padding:15px 20px;
+  background:var(--surface);
+  border-radius:12px;
 }
 
-.step-number {
-  color: var(--light);
-  font-size: 12px;
-  direction: ltr;
-  text-align: right;
-}
-
-.step h3 {
-  font: 20px "Kalameh", sans-serif;
-  margin: 7px 0;
-}
-
-.step p {
-  color: var(--muted);
-  font-size: 13px;
+.step .number {
+  color:var(--yellow);
+  font-size:24px;
 }
 
 /* CTA */
 
 .cta {
-  background: linear-gradient(120deg,#102748,#10203a);
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  padding: 45px 25px;
-  text-align: center;
+  text-align:center;
+  background:linear-gradient(120deg,#201b0b,#111316);
+  border:1px solid #594817;
+  border-radius:22px;
+  padding:50px 20px;
 }
 
 .cta h2 {
-  font: 34px "Lalezar", sans-serif;
-  margin-bottom: 10px;
+  font-size:34px;
+  margin-bottom:12px;
 }
 
 .cta p {
-  color: var(--muted);
-  font-size: 14px;
-  margin-bottom: 22px;
+  color:var(--gray);
+  margin-bottom:22px;
 }
 
 /* FOOTER */
 
 footer {
-  border-top: 1px solid var(--border);
-  padding: 25px 0;
-  color: #8492aa;
-  font-size: 12px;
+  border-top:1px solid var(--border);
+  padding:30px 0;
+  text-align:center;
+  color:var(--gray);
+  font-size:12px;
 }
 
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
+footer strong {
+  color:var(--yellow);
+  font-family:"Readex Pro",sans-serif;
 }
 
-@media(max-width:750px) {
-  .nav-links { display: none; }
-  .hero { padding: 65px 0; }
-  .hero h1 { font-size: 40px; }
-  .cards, .steps { grid-template-columns: 1fr; }
-  section.content { padding: 55px 0; }
-  .section-title h2 { font-size: 26px; }
-  .cta h2 { font-size: 28px; }
-  .footer-inner { justify-content: center; text-align: center; }
+/* MOBILE */
+
+@media(max-width:760px) {
+  .hero-grid { grid-template-columns:1fr; }
+  .cards,.steps { grid-template-columns:1fr; }
+  .subject-list { grid-template-columns:repeat(2,1fr); }
+  .nav { flex-direction:column; padding:12px 0; }
+  nav { justify-content:center; gap:12px; }
+  .hero { padding:65px 0; }
 }
 </style>
 </head>
@@ -296,160 +343,177 @@ footer {
 
 <header>
   <div class="container nav">
-    <a href="../" class="logo">ESLO<span>.</span></a>
 
-    <nav class="nav-links">
+    <a class="logo" href="../">
+      <img src="../eslo-logo.png" alt="لوگوی اسلو"
+           onerror="this.style.display='none'">
+      ESLO ACADEMY
+    </a>
+
+    <nav>
       <a href="../">خانه</a>
-      <a href="./">مشاوره انسانی</a>
+      <a href="./">مشاوره</a>
       <a href="../advisors/">مشاوران</a>
-      <a href="../#about">درباره ما</a>
+      <a href="../about/">درباره ما</a>
+      <a href="../register/">ثبت‌نام</a>
     </nav>
 
-    <a href="../register/" class="nav-btn">ثبت‌نام</a>
   </div>
 </header>
 
 <main>
 
-<section class="hero">
-  <div class="container">
-    <span class="tag">ESLO ACADEMY · HUMANITIES</span>
+<div class="hero">
+  <div class="container hero-grid">
 
-    <h1>
-      مسیر موفقیت در رشته<br>
-      <span>علوم انسانی</span>
-    </h1>
+    <div>
+      <div class="tag">HUMANITIES COUNSELING</div>
 
-    <p>
-      برای رسیدن به هدف‌های تحصیلی، به برنامه‌ریزی،
-      شناخت توانایی‌ها و انتخاب مسیر مناسب نیاز داری.
-      آکادمی اسلو همراه تو در این مسیر است.
-    </p>
+      <h1>
+        مسیر کنکور انسانی<br>
+        <span class="special">از برنامه تا موفقیت</span>
+      </h1>
 
-    <div class="actions">
-      <a href="../register/" class="btn primary">شروع ثبت‌نام</a>
-      <a href="#services" class="btn secondary">آشنایی با خدمات</a>
+      <p>
+        با برنامه‌ریزی اصولی، شناخت نقاط قوت و ضعف و پیگیری مستمر،
+        مسیر تحصیلی خودت را هدفمندتر دنبال کن.
+      </p>
+
+      <a class="btn" href="../register/">درخواست مشاوره</a>
     </div>
-  </div>
-</section>
 
-<section class="content" id="services">
+    <div class="hero-box">
+      <strong>ESLO.</strong>
+      <h2>مشاوره تخصصی انسانی</h2>
+      <p>یک مسیر مشخص، یک هدف روشن</p>
+    </div>
+
+  </div>
+</div>
+
+<section>
   <div class="container">
 
     <div class="section-title">
-      <h2>خدمات مشاوره تحصیلی</h2>
-      <p>برای مدیریت بهتر مسیر تحصیلی خودت</p>
+      <h2>خدمات مشاوره</h2>
+      <p>همراهی تحصیلی در مسیر رسیدن به اهداف</p>
     </div>
 
     <div class="cards">
 
       <div class="card">
-        <div class="icon">◈</div>
+        <div class="number">01</div>
         <h3>برنامه‌ریزی درسی</h3>
-        <p>
-          تنظیم برنامه مطالعاتی متناسب با شرایط،
-          اهداف و زمان در دسترس دانش‌آموز.
-        </p>
+        <p>تنظیم برنامه متناسب با شرایط، زمان و اهداف تحصیلی دانش‌آموز.</p>
       </div>
 
       <div class="card">
-        <div class="icon">✦</div>
-        <h3>آمادگی کنکور</h3>
-        <p>
-          آشنایی با مسیر آمادگی کنکور انسانی،
-          مرور مطالب و مدیریت زمان مطالعه.
-        </p>
+        <div class="number">02</div>
+        <h3>تحلیل آزمون</h3>
+        <p>بررسی عملکرد آزمون‌ها و شناسایی نقاط قابل بهبود.</p>
       </div>
 
       <div class="card">
-        <div class="icon">◎</div>
-        <h3>ارزیابی پیشرفت</h3>
-        <p>
-          بررسی روند مطالعه و شناسایی نقاط قوت
-          و بخش‌هایی که به توجه بیشتری نیاز دارند.
-        </p>
+        <div class="number">03</div>
+        <h3>پیگیری مطالعاتی</h3>
+        <p>بررسی روند اجرای برنامه و کمک به حفظ نظم مطالعاتی.</p>
       </div>
 
       <div class="card">
-        <div class="icon">⌘</div>
+        <div class="number">04</div>
         <h3>روش مطالعه</h3>
-        <p>
-          آشنایی با روش‌های مطالعه و مرور
-          درس‌های مختلف رشته علوم انسانی.
-        </p>
+        <p>آشنایی با روش‌های مناسب مطالعه و مرور درس‌های انسانی.</p>
       </div>
 
       <div class="card">
-        <div class="icon">↗</div>
-        <h3>هدف‌گذاری تحصیلی</h3>
-        <p>
-          شناخت هدف‌ها و تبدیل آن‌ها به
-          قدم‌های مشخص و قابل پیگیری.
-        </p>
+        <div class="number">05</div>
+        <h3>مدیریت زمان</h3>
+        <p>تقسیم زمان مطالعه، استراحت و مرور برای استفاده بهتر از روز.</p>
       </div>
 
       <div class="card">
-        <div class="icon">◇</div>
-        <h3>انتخاب مسیر آینده</h3>
-        <p>
-          آشنایی با رشته‌های دانشگاهی و
-          بررسی مسیرهای ادامه تحصیل.
-        </p>
+        <div class="number">06</div>
+        <h3>هدف‌گذاری</h3>
+        <p>تعیین اهداف کوتاه‌مدت و بلندمدت و ارزیابی پیشرفت.</p>
       </div>
 
     </div>
   </div>
 </section>
 
-<section class="content">
+<section class="subjects">
   <div class="container">
 
     <div class="section-title">
-      <h2>مسیر شروع همکاری</h2>
-      <p>از ثبت‌نام تا شروع مسیر برنامه‌ریزی</p>
+      <h2>درس‌های رشته انسانی</h2>
+      <p>برای هر درس، روش مطالعه و مرور متناسب اهمیت دارد.</p>
+    </div>
+
+    <div class="subject-list">
+      <div class="subject">علوم و فنون ادبی</div>
+      <div class="subject">ریاضی و آمار</div>
+      <div class="subject">عربی</div>
+      <div class="subject">اقتصاد</div>
+      <div class="subject">جامعه‌شناسی</div>
+      <div class="subject">روان‌شناسی</div>
+      <div class="subject">فلسفه و منطق</div>
+      <div class="subject">تاریخ و جغرافیا</div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="container">
+
+    <div class="section-title">
+      <h2>مراحل شروع همکاری</h2>
+      <p>از ثبت درخواست تا شروع برنامه‌ریزی</p>
     </div>
 
     <div class="steps">
 
       <div class="step">
-        <div class="step-number">STEP 01</div>
-        <h3>ثبت اطلاعات اولیه</h3>
-        <p>فرم ثبت‌نام را تکمیل کن.</p>
+        <div class="number">01</div>
+        <h3>ثبت درخواست</h3>
+        <p>اطلاعات اولیه خودت را در فرم ثبت‌نام وارد کن.</p>
       </div>
 
       <div class="step">
-        <div class="step-number">STEP 02</div>
-        <h3>بررسی نیازها</h3>
-        <p>شرایط و هدف‌های تحصیلی خود را مشخص کن.</p>
+        <div class="number">02</div>
+        <h3>بررسی شرایط</h3>
+        <p>شرایط تحصیلی و نیازهای آموزشی بررسی می‌شود.</p>
       </div>
 
       <div class="step">
-        <div class="step-number">STEP 03</div>
+        <div class="number">03</div>
         <h3>شروع مسیر</h3>
-        <p>پس از هماهنگی، مسیر مناسب خود را آغاز کن.</p>
+        <p>پس از هماهنگی، مسیر برنامه‌ریزی و مشاوره آغاز می‌شود.</p>
       </div>
 
     </div>
+
   </div>
 </section>
 
-<section class="content">
+<section>
   <div class="container">
+
     <div class="cta">
-      <h2>برای آینده‌ات قدم بردار</h2>
-      <p>اولین قدم برای ساختن یک مسیر تحصیلی هدفمند را بردار.</p>
-      <a href="../register/" class="btn primary">ثبت‌نام در آکادمی اسلو</a>
+      <h2>برای شروع آماده‌ای؟</h2>
+      <p>درخواست خودت را ثبت کن تا مراحل بعدی را دنبال کنی.</p>
+      <a class="btn" href="../register/">ثبت درخواست مشاوره</a>
     </div>
+
   </div>
 </section>
 
 </main>
 
 <footer>
-  <div class="container footer-inner">
-    <span>ESLO ACADEMY</span>
-    <span>تمام حقوق متعلق به آکادمی اسلو است.</span>
-    <span>© 2026 ESLO</span>
+  <div class="container">
+    <strong>ESLO ACADEMY</strong>
+    <p>تمام حقوق برای آکادمی اسلو محفوظ است.</p>
   </div>
 </footer>
 
