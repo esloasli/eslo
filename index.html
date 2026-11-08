@@ -1075,6 +1075,31 @@ window.addEventListener("resize",function(){
     closeMenu();
   }
 });
+  // COUNTDOWN
+function updateCountdown(){
+
+  const now = new Date();
+
+  // کنکور فرهنگیان - اردیبهشت ۱۴۰۶
+  const farhangianDate = new Date("2027-04-30T08:00:00");
+
+  // کنکور سراسری انسانی - تیر ۱۴۰۶
+  const nationalDate = new Date("2027-07-02T08:00:00");
+
+  function getDays(target){
+    const diff = target - now;
+    return Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24)));
+  }
+
+  document.getElementById("farhangianDays").textContent =
+    getDays(farhangianDate);
+
+  document.getElementById("nationalDays").textContent =
+    getDays(nationalDate);
+}
+
+updateCountdown();
+setInterval(updateCountdown, 60000);
 </script>
 
 </body>
