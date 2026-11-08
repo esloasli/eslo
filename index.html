@@ -576,7 +576,133 @@ body.light .nav nav{
 body.light .nav nav a{
   color:#333;
 }
+/* COUNTDOWN */
 
+.countdown-section{
+  padding:80px 5%;
+  position:relative;
+  overflow:hidden;
+}
+
+.countdown-title{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.countdown-title span{
+  color:var(--yellow);
+  font-family:'Readex Pro',sans-serif;
+  font-size:13px;
+  letter-spacing:2px;
+}
+
+.countdown-title h2{
+  font-family:'Lalezar',sans-serif;
+  font-size:38px;
+  margin:10px 0 5px;
+}
+
+.countdown-title p{
+  color:var(--gray);
+  margin:0;
+}
+
+.countdown-grid{
+  max-width:1000px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
+}
+
+.countdown-card{
+  position:relative;
+  padding:35px 25px;
+  text-align:center;
+  border:1px solid rgba(255,229,0,.18);
+  border-radius:24px;
+  background:rgba(255,255,255,.045);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  box-shadow:0 15px 45px rgba(0,0,0,.25);
+  overflow:hidden;
+  transition:.3s;
+}
+
+.countdown-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(255,229,0,.4);
+}
+
+.countdown-card::before{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:rgba(255,229,0,.08);
+  filter:blur(40px);
+  top:-80px;
+  right:-60px;
+}
+
+.countdown-label{
+  font-family:'Estedad',sans-serif;
+  font-size:18px;
+  font-weight:700;
+  position:relative;
+}
+
+.countdown-date{
+  color:var(--gray);
+  font-size:13px;
+  margin-top:7px;
+  position:relative;
+}
+
+.countdown-number{
+  margin:25px 0 10px;
+  position:relative;
+}
+
+.countdown-number span{
+  font-family:'Lalezar',sans-serif;
+  font-size:75px;
+  line-height:1;
+  color:var(--yellow);
+  text-shadow:0 0 25px rgba(255,229,0,.2);
+}
+
+.countdown-number small{
+  display:block;
+  color:var(--gray);
+  font-family:'Vazirmatn',sans-serif;
+  margin-top:5px;
+}
+
+.countdown-text{
+  color:var(--gray);
+  font-size:14px;
+  position:relative;
+}
+
+@media(max-width:760px){
+  .countdown-section{
+    padding:60px 5%;
+  }
+
+  .countdown-grid{
+    grid-template-columns:1fr;
+  }
+
+  .countdown-title h2{
+    font-size:31px;
+  }
+
+  .countdown-number span{
+    font-size:65px;
+  }
+  }
 
 /* RESPONSIVE */
 
